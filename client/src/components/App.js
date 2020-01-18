@@ -8,6 +8,7 @@ import ShopList from "./pages/ShopList.js";
 import Recipe from "./pages/Recipe.js";
 import Ingredient from "./pages/Ingredient.js";
 import Profile from "./pages/Profile.js";
+import Home from "./pages/Home.js";
 
 import "../utilities.css";
 
@@ -54,6 +55,7 @@ class App extends Component {
     return (
       <>
         <Router>
+          <Home path="/test" />
           <Skeleton
             path="/"
             handleLogin={this.handleLogin}
