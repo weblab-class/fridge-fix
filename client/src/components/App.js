@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
+import NavBar from "./modules/NavBar.js";
 import Skeleton from "./pages/Skeleton.js";
 import FridgeList from "./pages/FridgeList.js";
 import About from "./pages/About.js";
@@ -54,14 +55,9 @@ class App extends Component {
   render() {
     return (
       <>
+        <NavBar/>
         <Router>
-          <Home path="/test" />
-          <Skeleton
-            path="/"
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userId={this.state.userId}
-          />
+          <Home path="/" />
           <FridgeList path="/fridge" />
           <ShopList path="/shop" />
           <About path="/about" />

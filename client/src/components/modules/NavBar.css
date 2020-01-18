@@ -1,0 +1,12 @@
+.NavBar-container {
+    background-color: var(--white);
+}
+
+.NavBar-button {
+    background-color: var(--darkblue);
+    font-family: Open Sans;
+    font-size: 36px;
+    text-align: center;
+    color: var(--white);
+
+}
