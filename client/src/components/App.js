@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import FridgeList from "./pages/FridgeList.js";
 import About from "./pages/About.js";
+import Feed from "./pages/Feed.js";
 import ShopList from "./pages/ShopList.js";
 import Recipe from "./pages/Recipe.js";
 import Ingredient from "./pages/Ingredient.js";
@@ -53,6 +54,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <Feed />
         <Router>
           <Skeleton
             path="/"
@@ -61,6 +63,7 @@ class App extends Component {
             userId={this.state.userId}
           />
           <FridgeList path="/fridge" />
+          <Feed path="/feed" />
           <ShopList path="/shop" />
           <About path="/about" />
           <Profile path="/profile" />
