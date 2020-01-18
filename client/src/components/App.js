@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
+import Skeleton from "./pages/Skeleton.js";
+import FridgeList from "./pages/FridgeList.js";
+import About from "./pages/About.js";
+import ShopList from "./pages/ShopList.js";
+import Recipe from "./pages/Recipe.js";
+import Ingredient from "./pages/Ingredient.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 
@@ -49,13 +56,12 @@ class App extends Component {
       <>
         <NavBar/>
         <Router>
-          {/* <Skeleton
-            path="/"
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userId={this.state.userId}
-          />
-           */}
+          <FridgeList path="/fridge" />
+          <ShopList path="/shop" />
+          <About path="/about" />
+          <Profile path="/profile" />
+          <Ingredient path="/ingredient" />
+          <Recipe path="/recipe" />
           <NotFound default />
         </Router>
       </>
