@@ -45,8 +45,6 @@ class Skeleton extends Component {
         <h2> What you need to change</h2>
         <ul>
           <li>Change the font in utilities.css</li>
-          <li>Change the Database SRV for Atlas (server.js)</li>
-          <li>Change the Database Name for MongoDB (server.js)</li>
           <li>Add a favicon to your website at the path client/dist/favicon.ico</li>
         </ul>
       </>
