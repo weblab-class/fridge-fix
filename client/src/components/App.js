@@ -44,9 +44,11 @@ class App extends Component {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
+      console.log("here");
       this.setState({ userId: user._id });
       post("/api/initsocket", { socketid: socket.id });
     });
+    console.log(this.state.userId);
   };
 
   handleLogout = () => {
@@ -57,7 +59,12 @@ class App extends Component {
   render() {
     return (
       <>
-        <NavBar/>
+      <NavBar //PROBLEMS WITH BACKEND LOGIN
+          path="/"
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout}
+          userId={this.state.userId}
+        />
         <Router>
           <Home path="/" />
           <FridgeList path="/fridge" />
@@ -68,8 +75,16 @@ class App extends Component {
           <Profile path="/profile" />
           <Ingredient path="/ingredient" />
           <Recipe path="/recipe" />
+
+          <Skeleton path="/skeleton" 
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout}
+          userId={this.state.userId}          
+          />
+
           <NotFound default />
         </Router>
+
       </>
     );
   }
