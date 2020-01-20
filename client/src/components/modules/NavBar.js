@@ -29,7 +29,7 @@ class NavBar extends Component {
         <nav className="NavBar-container">
             <div className="NavBar-linkContainer u-inlineBlock">
 
-            <div class="flex-container">
+            <div className="flex-container">
             <div>  </div>
             <div> </div>
             <div> </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
+import RecipePage from "./pages/RecipePage.js";
 import Skeleton from "./pages/Skeleton.js";
 import FridgeList from "./pages/FridgeList.js";
 import About from "./pages/About.js";
@@ -56,12 +57,12 @@ class App extends Component {
   render() {
     return (
       <>
-        <Feed />
         <NavBar/>
         <Router>
           <Home path="/" />
           <FridgeList path="/fridge" />
           <Feed path="/feed" />
+          <RecipePage path="/recipe" />
           <ShopList path="/shop" />
           <About path="/about" />
           <Profile path="/profile" />
