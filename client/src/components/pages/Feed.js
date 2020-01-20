@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import FridgeListSidebar from "../modules/FridgeListSidebar.js";
+import RecipeFeed from "../modules/RecipeFeed.js";
+
+import "./feed.css";
 
 class Feed extends Component {
   constructor(props) {
@@ -13,8 +16,10 @@ class Feed extends Component {
   render() {
     return (
       <div>
-        <h1>Feed</h1>
-        <FridgeListSidebar />
+        <div className= "feed-container">
+          <span className="feed-item"><FridgeListSidebar /></span>
+          <span className="feed-item"><RecipeFeed /></span>
+        </div>
       </div>
     );
   }

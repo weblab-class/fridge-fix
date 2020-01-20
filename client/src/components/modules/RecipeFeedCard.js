@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 
 import "./RecipeFeedCard.css";
 
@@ -9,24 +10,27 @@ import "./RecipeFeedCard.css";
  * 
  * 
  * Proptypes
- * @param {string} _id of the recipe
- * @param {string} title
- * @param {link} pic
- * @param {string} desc of the recipe
- * @param {array} ingredients 
+ * @param {object} recipe
+ * contains title,pic,desc
  */
-class Card extends Component {
+class RecipeFeedCard extends Component {
   constructor(props) {
     super(props);
   }
 
+  handleClick = () => {
+    
+  }
+
   render() {
     return (
-      <div className="Card-container">
-        <div className="Card-title">{this.props.title}</div>
-        <div className="Card-text">You could cook this right now.</div>
-        <img src={this.props.pic} />
-      </div>
+      <Link to={`/recipe/`}>
+        <div className="card-container">
+          <div className="card-title">{this.props.recipe.title}</div>
+          <div className="card-text">{this.props.recipe.desc}</div>
+          <img className="card-pic" src={this.props.recipe.pic} />
+        </div>
+      </Link>
     );
   }
 }
