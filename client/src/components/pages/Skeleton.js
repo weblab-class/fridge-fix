@@ -14,6 +14,7 @@ class Skeleton extends Component {
   }
   
   componentDidMount() {
+
     // remember -- api calls go here!
   }
 
