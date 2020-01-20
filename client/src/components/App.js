@@ -5,10 +5,12 @@ import NavBar from "./modules/NavBar.js";
 import Skeleton from "./pages/Skeleton.js";
 import FridgeList from "./pages/FridgeList.js";
 import About from "./pages/About.js";
+import Feed from "./pages/Feed.js";
 import ShopList from "./pages/ShopList.js";
 import Recipe from "./pages/Recipe.js";
 import Ingredient from "./pages/Ingredient.js";
 import Profile from "./pages/Profile.js";
+import Home from "./pages/Home.js";
 
 import "../utilities.css";
 
@@ -64,7 +66,9 @@ class App extends Component {
         />
 
         <Router>
+          <Home path="/" />
           <FridgeList path="/fridge" />
+          <Feed path="/feed" />
           <ShopList path="/shop" />
           <About path="/about" />
           <Profile path="/profile" />
