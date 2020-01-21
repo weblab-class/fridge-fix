@@ -32,7 +32,7 @@ const auth = require("./auth");
 const socket = require("./server-socket");
 
 // Server configuration below
-const mongoConnectionURL = "mongodb+srv://admin:<password>@cluster0-re7oh.mongodb.net/test?retryWrites=true&w=majority";
+const mongoConnectionURL = "mongodb+srv://admin:asdf@cluster0-jvzyx.mongodb.net/test?retryWrites=true&w=majority";
 const databaseName = "fridgefix";
 
 // connect to mongodb

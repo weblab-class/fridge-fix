@@ -36,6 +36,8 @@ function login(req, res) {
   verify(req.body.token)
     .then((user) => getOrCreateUser(user))
     .then((user) => {
+      console.log(`Logged in as ${user.name}`);
+
       // persist user in the session
       req.session.user = user;
       res.send(user);
@@ -47,6 +49,8 @@ function login(req, res) {
 }
 
 function logout(req, res) {
+  if (req.user) console.log(`${req.user.name} logged out`);
+
   req.session.user = null;
   res.send({});
 }
