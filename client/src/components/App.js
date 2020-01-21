@@ -81,7 +81,7 @@ class App extends Component {
           <About path="/about" />
           <Profile path="/profile/:userId" />
           <Ingredient path="/ingredient" />
-          <Recipe path="/recipe" />
+          <Recipe path="/recipe/:recipeName" />
 
           <Skeleton path="/skeleton" 
           handleLogin={this.handleLogin}

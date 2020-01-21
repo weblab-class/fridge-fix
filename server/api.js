@@ -11,6 +11,8 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Ingredient = require("./models/ingredient")
+const Recipe = requite("./models/recipe")
 
 // import authentication library
 const auth = require("./auth");
@@ -20,6 +22,10 @@ const router = express.Router();
 
 //initialize socket
 const socket = require("./server-socket");
+
+router.get("/recipe", (req, res) => {
+  Recipe.findOne({name: req.query.recipeName}).then((recipe) => res.send(recipe));
+})
 
 router.get("/user", (req, res) => {
   User.findById(req.query.userid).then((user) => {
