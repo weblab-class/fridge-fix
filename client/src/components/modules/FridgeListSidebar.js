@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 import FridgeListSidebarItem from "./FridgeListSidebarItem.js";
 import "./FridgeListSidebar.css";
 
@@ -59,6 +60,9 @@ class FridgeListSidebar extends Component {
       <div className="fridgelistsidebar-box">
         <h1 className="fridgelistsidebar-title">Fridge Alerts</h1>
         <div className="fridgelistsidebar-line"></div>
+        <Link to="/fridge/" className="fridgelistsidebar-button">
+          Open Fridge
+        </Link>
         {itemList}
       </div>
     );
