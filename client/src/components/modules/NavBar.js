@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
 
+import { get, post } from "../../utilities.js";
 import "./NavBar.css";
 import { Redirect } from "react-router-dom";
-import { get, post } from "../../utilities";
-
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
 const GOOGLE_CLIENT_ID = "848241716739-mbsjshm9umshpbg7hu2cnntrkcdd1gf3.apps.googleusercontent.com";
@@ -58,7 +57,7 @@ class NavBar extends Component {
                 Home
               </Link>
               <Link to="/about" className="NavBar-button">
-                About 
+                About
               </Link>
               <Link to="/fridge" className="NavBar-button ">
                 Fridge
