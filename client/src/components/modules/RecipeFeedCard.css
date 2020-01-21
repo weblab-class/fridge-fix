@@ -1,45 +1,44 @@
-.Card-container {
-    border: var(--darkgrey) 1px solid;
-    border-radius: var(--xs);
-    margin-top: var(--m);
-  }
-  
-  .Card-container:first-of-type {
-    margin-top: var(--l);
-  }
+.card-container {
+  margin-top: var(--m);
+  margin-bottom: var(--m);
+  padding-top: var(--m);
+  padding-bottom: var(--m);
 
-  .Card-title {
-      text-decoration: underline;
-      font-weight: bold;
-      font-size: x-large;
-  }
+  border-top: var(--s);
+  border-top-color: var(--lightblue);
 
-  .Card-text {
-      font-size: large;
-  }
+  width: auto;
 
-  
-  .Card-story,
-  .Card-commentSection {
-    padding: var(--m) var(--l);
-  }
-  
-  .Card-storyUser {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .Card-storyContent {
-    font-size: 40px;
-    margin: var(--s) 0 0;
-  }
-  
-  .Card-commentSection {
-    background-color: var(--grey);
-    border-top: 1px solid var(--darkgrey);
-  }
-  
-  .Card-commentBody {
-    margin: 0 0 var(--s);
-  }
+  background: var(--medgrey);
+}
+
+.card-title {
+  font-family: Open Sans, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: var(--l);
+  text-decoration: underline;
+
+  color: black;
+
+  margin-left: var(--m);
+}
+
+.card-text {
+  font-family: Open Sans Condensed, sans-serif;
+  font-size: var(--m);
+
+  color: black;
+
+  margin-left:var(--m);
+  margin-top:var(--xs);
+}
+
+.card-pic {
+  width:500px;
+  height:200px;
+  margin-top: var(--s);
+
+  background-color: goldenrod;
+}
   

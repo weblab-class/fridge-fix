@@ -1,11 +1,13 @@
 
+
 .Home-imageContainer {
     padding: 0 5%;
+    margin: var(--m);
   }
   
 
 .Home-image {
-    height: 420px;
+    height: 300px;
     width: 100%;
     display: block;
     
@@ -25,4 +27,35 @@
     bottom: 0;
     background-image: url("../../../dist/images/HomeIcon.svg");
   
+}
+
+.Home-introText{
+    font-family: Open Sans Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    align-items: center;
+    text-align: center;
+    color: var(--textgrey);
+}
+
+.Home-button{
+    background: var(--primarypink);
+    border-radius: 50px;
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 0;
+    padding: var(--xs) var(--m);
+    margin: var(--m);
+    text-decoration: none;
+}
+
+.Home-buttonText{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
 }
