@@ -12,7 +12,7 @@ class Feed extends Component {
   componentDidMount() {
 
   }
-  
+
   render() {
     return (
       <div>
