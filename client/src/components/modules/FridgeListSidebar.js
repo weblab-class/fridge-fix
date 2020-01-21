@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import FridgeListSidebarItem from "./FridgeListSidebarItem.js";
 import "./FridgeListSidebar.css";
+import { get } from "../../utilities";
 
 /**
  * display fridge list items sorted by expiration. Also display navbutton
@@ -33,27 +34,38 @@ class FridgeListSidebar extends Component {
     super(props);
 
     this.state = {
-      items: testFridgeList
     }
+  }
+
+  componentDidMount() {
+    get( `/api/whoami`, {})
+    .then((user) => {
+      this.setState({items: user.fridgeList});
+    });
   }
 
   render() {
     let itemList = null;
-    const hasItems = this.state.items.length !== 0;
-    if (hasItems) {
-      itemList = this.state.items
-      .sort((a,b) => {
-        return a.expiration-b.expiration;
-      })
-      .map((itemObj) => (
-        <FridgeListSidebarItem
-          ingredientID = {itemObj.ingredientID}
-          qt = {itemObj.qt}
-          expiration = {itemObj.expiration}
-        />
-      ));
+    
+    if (!this.state.items) {
+			itemList = <div> Loading! </div>;
     } else {
-      itemList = <div>Empty fridge!</div>;
+      const hasItems = this.state.items.length !== 0;
+      if (hasItems) {
+        itemList = this.state.items
+        .sort((a,b) => {
+          return a.expiration-b.expiration;
+        })
+        .map((itemObj) => (
+          <FridgeListSidebarItem
+            ingredientID = {itemObj.ingredientID}
+            qt = {itemObj.qt}
+            expiration = {itemObj.expiration}
+          />
+        ));
+      } else {
+        itemList = <div>Empty fridge!</div>;
+      }
     }
 
     return (

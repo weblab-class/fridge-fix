@@ -31,31 +31,40 @@ class RecipeFeed extends Component {
     }
   }
 
-  handleChange = (event) => {
-		this.setState({query: event.target.value});
+  handleChange = async (event) => {
+    await this.setState({query: event.target.value});
+    console.log("changed to"+this.state.query.length);
+    this.queryRecipes();
   }
   
   componentDidMount() {
-    get( `/api/search/recipes`, {})
-    .then((recipes) => this.setState({results: recipes}))
+    this.queryRecipes();
   }
 
-  render() {	
-    if (!this.state.results) {
-			return <div> Loading! </div>;
-    }
+  queryRecipes = () => {
+    get( `/api/search/recipes`, {query: this.state.query})
+    .then((recipes) => this.setState({results: recipes}));
+  }
 
-		let itemList = null;
-    const hasItems = this.state.results.length !== 0;
-    if (hasItems) {
-      itemList = this.state.results
-      .map((itemObj) => (
-        <RecipeFeedCard
-          recipe = {itemObj}
-        />
-      ));
+  render() {
+    let itemList = null;
+    let numResults = 0;
+    
+    if (!this.state.results) {
+			itemList = <div> Loading! </div>;
     } else {
-      itemList = <div>No results!</div>;
+      const hasItems = this.state.results.length !== 0;
+      if (hasItems) {
+        itemList = this.state.results
+        .map((itemObj) => (
+          <RecipeFeedCard
+            recipe = {itemObj}
+          />
+        ));
+        numResults = this.state.results.length;
+      } else {
+        itemList = <div>No results!</div>;
+      }
     }
       
     return (
@@ -67,7 +76,7 @@ class RecipeFeed extends Component {
 					onChange = {this.handleChange}
 					placeholder = "search recipes..."
 				/>
-				<div className="recipefeed-results">{`${this.state.results.length} results`}</div>
+				<div className="recipefeed-results">{`${numResults} results`}</div>
 				{itemList}
       </div>
     );
