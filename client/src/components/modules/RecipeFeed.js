@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RecipeFeedCard from "./RecipeFeedCard.js";
+import { get } from "../../utilities";
 
 import "./RecipeFeed.css";
 
@@ -26,16 +27,24 @@ class RecipeFeed extends Component {
     super(props);
 
     this.state = {
-			query: "",
-    	results: hardcode
+			query: ""
     }
   }
 
   handleChange = (event) => {
 		this.setState({query: event.target.value});
-	}
+  }
+  
+  componentDidMount() {
+    get( `/api/search/recipes`, {})
+    .then((recipes) => this.setState({results: recipes}))
+  }
 
   render() {	
+    if (!this.state.results) {
+			return <div> Loading! </div>;
+    }
+
 		let itemList = null;
     const hasItems = this.state.results.length !== 0;
     if (hasItems) {

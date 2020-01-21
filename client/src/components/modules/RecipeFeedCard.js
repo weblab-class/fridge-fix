@@ -24,11 +24,11 @@ class RecipeFeedCard extends Component {
 
   render() {
     return (
-      <Link to={`/recipe/`}>
+      <Link to={`/recipe/${this.props.recipe.recipeID}`}>
         <div className="card-container">
-          <div className="card-title">{this.props.recipe.title}</div>
+          <div className="card-title">{this.props.recipe.name}</div>
           <div className="card-text">{this.props.recipe.desc}</div>
-          <img className="card-pic" src={this.props.recipe.pic} />
+          <img className="card-pic" src="" />
         </div>
       </Link>
     );
