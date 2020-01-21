@@ -21,15 +21,21 @@ const router = express.Router();
 //initialize socket
 const socket = require("./server-socket");
 
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
+
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
 router.get("/whoami", (req, res) => {
-  if (!req.user) {
-    // not logged in
-    return res.send({});
+  if (req.user) {
+    res.send(req.user);
+  } else {
+    // user is not logged in
+    res.send({});
   }
-
-  res.send(req.user);
 });
 
 router.post("/initsocket", (req, res) => {

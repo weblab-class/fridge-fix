@@ -2,11 +2,13 @@ import React, { Component } from "react";
 
 import "./Home.css";
 import "../../utilities.css";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link, BrowserRouter, Redirect } from "react-router-dom";
 
 class Home extends Component {
     constructor(props) {
-      super(props);
+			super(props);
+			
+			this.state = {};
     }
   
     render() {
