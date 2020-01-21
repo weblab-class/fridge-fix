@@ -65,7 +65,7 @@ class NavBar extends Component {
               <Link to="/shop" className="NavBar-button">
                 Shop
               </Link>
-              <Link to={`/profile/${this.state.userId}`} className="NavBar-button">
+              <Link to={`/profile/${this.props.userId}`} className="NavBar-button">
                 Profile
               </Link>
 
