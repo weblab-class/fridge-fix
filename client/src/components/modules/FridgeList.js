@@ -54,7 +54,7 @@ class FridgeList extends Component {
     
         return (
           <div className="fridgelist-box">
-            <h1 className="fridgelist-title">Sort by: </h1>
+            <h1 className="fridgelist-title">You have .... </h1>
             {itemList}
           </div>
         );

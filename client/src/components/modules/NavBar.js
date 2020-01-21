@@ -58,7 +58,7 @@ class NavBar extends Component {
                 Home
               </Link>
               <Link to="/about" className="NavBar-button">
-                About
+                About 
               </Link>
               <Link to="/fridge" className="NavBar-button ">
                 Fridge

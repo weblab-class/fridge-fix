@@ -4,7 +4,7 @@ import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
 import RecipePage from "./pages/RecipePage.js";
 import Skeleton from "./pages/Skeleton.js";
-import FridgeList from "./modules/FridgeList.js";
+import Fridge from "./modules/FridgeList.js";
 
 //import FridgeListItem from "./modules/FridgeListItem.js";
 
@@ -78,7 +78,7 @@ class App extends Component {
       <Router>
 
         <Home path="/" />
-        <FridgeList path="/fridgelist" />
+        <Fridge path="/fridge" />
         <Feed path="/feed" />
         <RecipePage path="/recipe/:recipeID" />
         <ShopList path="/shop" />
