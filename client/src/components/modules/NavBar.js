@@ -21,9 +21,9 @@ class NavBar extends Component {
 
   handleLogin = (res) => {
     // 'res' contains the response from Google's authentication servers
-    console.log(res);
-
+    console.log(res);  
     const userToken = res.tokenObj.id_token;
+    console.log(userToken)
     post("/api/login", { token: userToken }).then((user) => {
       // the server knows we're logged in now
       this.setState({userId: user._id})
