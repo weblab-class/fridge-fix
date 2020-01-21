@@ -32,15 +32,19 @@ class App extends Component {
   }
 
   componentDidMount() {
+    /*
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
         this.setState({ userId: user._id });
       }
     });
+    */
   }
 
   handleLogin = (res) => {
+    console.log(res);
+    /*
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
@@ -49,11 +53,14 @@ class App extends Component {
       post("/api/initsocket", { socketid: socket.id });
     });
     console.log(this.state.userId);
+    */
   };
 
   handleLogout = () => {
+    /*
     this.setState({ userId: undefined });
     post("/api/logout");
+    */
   };
 
   render() {
