@@ -11,6 +11,8 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Ingredient = require("./models/ingredient")
+const Recipe = require("./models/recipe")
 
 // import authentication library
 const auth = require("./auth");
@@ -20,6 +22,18 @@ const router = express.Router();
 
 //initialize socket
 const socket = require("./server-socket");
+
+router.get("/ingredient", (req, res) => {
+  Ingredient.findOne({ingredientID: req.query.ingredientID}).then((ingredient) => res.send(ingredient));
+})
+router.get("/recipe", (req, res) => {
+  Recipe.findOne({recipeID: req.query.recipeID}).then((recipe) => res.send(recipe));
+})
+
+//stripped to just return all recipes
+router.get("/search/recipes", (req, res) => {
+  Recipe.find({}).then((recipes) => res.send(recipes));
+})
 
 router.get("/user", (req, res) => {
   User.findById(req.query.userid).then((user) => {

@@ -8,7 +8,6 @@ import FridgeList from "./pages/FridgeList.js";
 import About from "./pages/About.js";
 import Feed from "./pages/Feed.js";
 import ShopList from "./pages/ShopList.js";
-import Recipe from "./pages/Recipe.js";
 import Ingredient from "./pages/Ingredient.js";
 import Profile from "./pages/Profile.js";
 import Home from "./pages/Home.js";
@@ -67,30 +66,29 @@ class App extends Component {
     return (
       <>
       <NavBar //PROBLEMS WITH BACKEND LOGIN
-          path="/"
-          handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout}
-          userId={this.state.userId}
+        path="/"
+        handleLogin={this.handleLogin}
+        handleLogout={this.handleLogout}
+        userId={this.state.userId}
+      />
+      <Router>
+        <Home path="/" />
+        <FridgeList path="/fridge" />
+        <Feed path="/feed" />
+        <RecipePage path="/recipe/:recipeID" />
+        <ShopList path="/shop" />
+        <About path="/about" />
+        <Profile path="/profile/:userId" />
+        <Ingredient path="/ingredient" />
+
+        <Skeleton path="/skeleton" 
+        handleLogin={this.handleLogin}
+        handleLogout={this.handleLogout}
+        userId={this.state.userId}          
         />
-        <Router>
-          <Home path="/" />
-          <FridgeList path="/fridge" />
-          <Feed path="/feed" />
-          <RecipePage path="/recipe" />
-          <ShopList path="/shop" />
-          <About path="/about" />
-          <Profile path="/profile/:userId" />
-          <Ingredient path="/ingredient" />
-          <Recipe path="/recipe" />
 
-          <Skeleton path="/skeleton" 
-          handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout}
-          userId={this.state.userId}          
-          />
-
-          <NotFound default />
-        </Router>
+        <NotFound default />
+      </Router>
 
       </>
     );
