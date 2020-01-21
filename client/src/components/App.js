@@ -18,6 +18,9 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 
+const GOOGLE_CLIENT_ID = "848241716739-mbsjshm9umshpbg7hu2cnntrkcdd1gf3.apps.googleusercontent.com";
+
+
 /**
  * Define the "App" component as a class.
  */
@@ -31,48 +34,47 @@ class App extends Component {
   }
 
   componentDidMount() {
-    /*
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
         this.setState({ userId: user._id });
       }
     });
-    */
   }
 
   handleLogin = (res) => {
-    console.log(res);
-    /*
-    console.log(`Logged in as ${res.profileObj.name}`);
+    // 'res' contains the response from Google's authentication servers
+    console.log(res);  
     const userToken = res.tokenObj.id_token;
+    console.log(userToken)
     post("/api/login", { token: userToken }).then((user) => {
-      console.log("here");
-      this.setState({ userId: user._id });
-      post("/api/initsocket", { socketid: socket.id });
+      // the server knows we're logged in now
+      this.setState({userId: user._id})
+      console.log(user);
     });
-    console.log(this.state.userId);
-    */
   };
 
   handleLogout = () => {
-    /*
+    console.log("Logged out successfully!");
     this.setState({ userId: undefined });
     post("/api/logout");
-    */
   };
 
   render() {
     return (
       <>
-      <NavBar //PROBLEMS WITH BACKEND LOGIN
+      <NavBar
         path="/"
         handleLogin={this.handleLogin}
         handleLogout={this.handleLogout}
         userId={this.state.userId}
       />
       <Router>
-        <Home path="/" />
+        <Home 
+          path="/"
+          handleLogin={this.handleLogin}
+          clientId = {GOOGLE_CLIENT_ID} 
+        />
         <FridgeList path="/fridge" />
         <Feed path="/feed" />
         <RecipePage path="/recipe/:recipeID" />
@@ -81,11 +83,11 @@ class App extends Component {
         <Profile path="/profile/:userId" />
         <Ingredient path="/ingredient" />
 
-        <Skeleton path="/skeleton" 
+        {/* <Skeleton path="/skeleton" 
         handleLogin={this.handleLogin}
         handleLogout={this.handleLogout}
         userId={this.state.userId}          
-        />
+        /> */}
 
         <NotFound default />
       </Router>
