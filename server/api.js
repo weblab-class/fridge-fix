@@ -32,7 +32,11 @@ router.get("/recipe", (req, res) => {
 
 //stripped to just return all recipes
 router.get("/search/recipes", (req, res) => {
-  Recipe.find({}).then((recipes) => res.send(recipes));
+  if (req.query.query.length == 0) {
+    Recipe.find({}).then((recipes) => res.send(recipes));
+  } else {
+    res.send([]);
+  }
 })
 
 router.get("/user", (req, res) => {
