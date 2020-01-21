@@ -63,6 +63,7 @@ class App extends Component {
     this.setState({ userId: undefined });
     post("/api/logout");
     */
+    /* looking good fam */
   };
 
   render() {
