@@ -79,7 +79,7 @@ class App extends Component {
           <RecipePage path="/recipe" />
           <ShopList path="/shop" />
           <About path="/about" />
-          <Profile path="/profile" />
+          <Profile path="/profile/:userId" />
           <Ingredient path="/ingredient" />
           <Recipe path="/recipe" />
 
