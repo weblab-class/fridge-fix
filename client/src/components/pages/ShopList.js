@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import IngredientSearch from "../modules/IngredientSearch.js";
 
 class ShopList extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class ShopList extends Component {
     return (
       <div>
         <h1>Shopping List</h1>
-        <p>The page you requested couldn't be found.</p>
+        <IngredientSearch targetList="shop" />
       </div>
     );
   }

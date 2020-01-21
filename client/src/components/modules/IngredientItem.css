@@ -1,0 +1,23 @@
+.item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin-left: var(--m);
+    border: var(--xs) solid var(--textgrey);
+
+    padding: var(--xs) var(--s);
+}
+
+.item-title {
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--m);
+    color: black;
+}
+
+.item-add {
+    font-family: "Open Sans", sans-serif;
+    font-size: var(--m);
+    color: black;
+}

@@ -1,27 +1,27 @@
 import React, { Component } from "react";
-import RecipeFeedCard from "./RecipeFeedCard.js";
+import IngredientItem from "./IngredientItem.js";
 
-import "./RecipeFeed.css";
+import "./IngredientSearch.css";
 
 /**
- * RecipeCard is a component for displaying content like stories
- *
- * Display query+#results
+ * Display matching ingredients with ability to add to targetList
  * 
  * 
  * Proptypes
- * none
+ * @param {string} targetList
  */
 
 const hardcode = 
-[{title: "Omelet",
+[{title: "Egg",
 pic: "",
-desc: "scrambled>omelet"},
-{title: "Steak",
+desc: "yellow",
+exptime: 140000},
+{title: "Bacon",
 pic: "",
-desc: "but it's made out of eggs instead"}]
+desc: "red",
+exptime: 3000},]
 
-class RecipeFeed extends Component {
+class IngredientSearch extends Component {
   constructor(props) {
     super(props);
 
@@ -35,14 +35,15 @@ class RecipeFeed extends Component {
 		this.setState({query: event.target.value});
 	}
 
-  render() {	
+  render() {		
 		let itemList = null;
     const hasItems = this.state.results.length !== 0;
     if (hasItems) {
       itemList = this.state.results
       .map((itemObj) => (
-        <RecipeFeedCard
-          recipe = {itemObj}
+        <IngredientItem
+					ingredient = {itemObj}
+					targetList = {this.props.targetList}
         />
       ));
     } else {
@@ -50,19 +51,19 @@ class RecipeFeed extends Component {
     }
       
     return (
-      <div className = "recipefeed-container">
+      <div className = "ingredientsearch-container">
 				<input
-					className = "recipefeed-searchbar"
+					className = "ingredientsearch-searchbar"
 					type = "text"
 					value = {this.state.query}
 					onChange = {this.handleChange}
-					placeholder = "search recipes..."
+					placeholder = "search ingredients..."
 				/>
-				<div className="recipefeed-results">{`${this.state.results.length} results`}</div>
+				<div className="ingredientsearch-results">{`${this.state.results.length} results`}</div>
 				{itemList}
       </div>
     );
   }
 }
 
-export default RecipeFeed;
+export default IngredientSearch;
