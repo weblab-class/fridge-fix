@@ -1,0 +1,69 @@
+.Profile-avatarContainer {
+    padding: 0 35%;
+  }
+
+.Profile-avatar {
+    /*max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;*/
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin-top: 20px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
+    background-image: url("../../public/images/avatar_placeholder.jpg");
+}
+
+.Profile-name {
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: 300;
+    font-family: Open Sans;
+  }
+
+.Profile-name-container {
+    background-color: var(--lightblue);
+    margin: 10px 400px;
+    border-radius: 30px;
+}
+
+.Profile-container {
+    margin: var(--l) var(--l);
+}
+
+.Profile-subContainer {
+    flex-basis: 0;
+    flex-grow: 1;
+    background-color: var(--medgrey);
+    height: 320px;
+    border-radius: 50px;
+  }
+  
+  .Profile-subContainer + .Profile-subContainer {
+    margin-left: var(--l);
+  }
+  
+  .Profile-subTitle {
+    font-weight: 300;
+    font-size: 25px;
+    font-family: Open Sans;
+    margin: var(--m) var(--s);
+    text-decoration: underline;
+  }
+  
+  #Grocery-stats {
+    margin: 50px auto;
+    font-family: Open Sans;
+    font-weight: bold;
+    font-size: 25px;
+  }
