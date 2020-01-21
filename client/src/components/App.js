@@ -4,7 +4,10 @@ import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
 import RecipePage from "./pages/RecipePage.js";
 import Skeleton from "./pages/Skeleton.js";
-import FridgeList from "./pages/FridgeList.js";
+import Fridge from "./modules/FridgeList.js";
+
+//import FridgeListItem from "./modules/FridgeListItem.js";
+
 import About from "./pages/About.js";
 import Feed from "./pages/Feed.js";
 import ShopList from "./pages/ShopList.js";
@@ -69,13 +72,15 @@ class App extends Component {
         handleLogout={this.handleLogout}
         userId={this.state.userId}
       />
+
       <Router>
         <Home 
           path="/"
           handleLogin={this.handleLogin}
           clientId = {GOOGLE_CLIENT_ID} 
         />
-        <FridgeList path="/fridge" />
+        <Fridge path="/fridge" />
+
         <Feed path="/feed" />
         <RecipePage path="/recipe/:recipeID" />
         <ShopList path="/shop" />
@@ -86,12 +91,11 @@ class App extends Component {
         {/* <Skeleton path="/skeleton" 
         handleLogin={this.handleLogin}
         handleLogout={this.handleLogout}
-        userId={this.state.userId}          
-        /> */}
+        userId={this.state.userId}/>
 
         <NotFound default />
-      </Router>
 
+      </Router>
       </>
     );
   }

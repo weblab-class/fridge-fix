@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import FridgeListSidebar from "../modules/FridgeListSidebar.js";
+import FridgeList from "../modules/FridgeList.js";
 import RecipeFeed from "../modules/RecipeFeed.js";
 
 import "./feed.css";
 
-class Feed extends Component {
+class Fridge extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,7 +17,7 @@ class Feed extends Component {
     return (
       <div>
         <div className= "feed-container">
-          <span className="feed-item"><FridgeListSidebar /></span>
+          <span className="feed-item"><FridgeList /></span>
           <span className="feed-item"><RecipeFeed /></span>
         </div>
       </div>
