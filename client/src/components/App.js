@@ -4,7 +4,7 @@ import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
 import RecipePage from "./pages/RecipePage.js";
 import Skeleton from "./pages/Skeleton.js";
-import Fridge from "./pages/FridgeList.js";
+import Fridge from "./pages/Fridge.js";
 import About from "./pages/About.js";
 import Feed from "./pages/Feed.js";
 import ShopList from "./pages/ShopList.js";

@@ -25,4 +25,4 @@ class Fridge extends Component {
   }
 }
   
-export default Feed;
+export default Fridge;
