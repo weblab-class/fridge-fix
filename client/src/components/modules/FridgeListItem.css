@@ -1,4 +1,4 @@
-.Fridge-List-Item-Container {
+.fridgelistitem-box {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -14,22 +14,28 @@
     box-sizing: border-box;
 }
 
-.Fridge-List-Item-Text {
-    font-family: Open Sans;
+.fridgelistitem-text {
+    font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     text-align: center;
 }
 
-.fridgelistsidebaritem-safe {
+.fridgelistitem-delete {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.fridgelistitem-safe {
     border-color: #BDBDBD;
 }
 
-.fridgelistsidebaritem-warning {
+.fridgelistitem-warning {
     border-color: var(--orange);
 }
 
-.fridgelistsidebaritem-expired {
+.fridgelistitem-expired {
     border-color: var(--red);
 }
