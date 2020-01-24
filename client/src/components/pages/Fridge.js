@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import FridgeList from "../modules/FridgeList.js";
 import RecipeFeed from "../modules/RecipeFeed.js";
 
-import "./feed.css";
+import "./Feed.css";
 
 class Fridge extends Component {
   constructor(props) {
