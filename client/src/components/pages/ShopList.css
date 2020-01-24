@@ -1,0 +1,32 @@
+.ShopList-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.ShopList-bgbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 636px;
+    height: 898px;
+    background-color: var(--brown);
+    border-radius: 45px;
+}
+
+.ShopList-title{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    color: var(--textgray);
+}
+
+.ShopList-padline{
+    background-color: var(--yellow);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    position: absolute;
+    width: 635px;
+    height: 858px;
+}
