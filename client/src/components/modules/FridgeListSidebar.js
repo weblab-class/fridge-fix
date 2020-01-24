@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import FridgeListSidebarItem from "./FridgeListSidebarItem.js";
 import "./FridgeListSidebar.css";
 import { get } from "../../utilities";
+import { connect } from 'react-redux';
 
 /**
  * display fridge list items sorted by expiration. Also display navbutton
@@ -10,24 +11,6 @@ import { get } from "../../utilities";
  * Proptypes
  * none
  */
-
-const testFridgeList = [
-  {
-    ingredientID: "onion",
-    qt: 1,
-    expiration: Date.now()+500000
-  },
-  {
-    ingredientID: "egg",
-    qt: 12,
-    expiration: Date.now()
-  },
-  {
-    ingredientID: "bacon",
-    qt: 2,
-    expiration: Date.now()+10500000
-  },
-]
 
 class FridgeListSidebar extends Component {
   constructor(props) {
@@ -37,36 +20,28 @@ class FridgeListSidebar extends Component {
     }
   }
 
-  componentDidMount() {
-    get( `/api/whoami`, {})
-    .then((user) => {
-      this.setState({items: user.fridgeList});
-    });
-  }
+  componentDidMount() {  }
 
   render() {
+    const { fridgeList } = this.props;
     let itemList = null;
     
-    if (!this.state.items) {
-			itemList = <div> Loading! </div>;
-    } else {
-      const hasItems = this.state.items.length !== 0;
-      if (hasItems) {
-        itemList = this.state.items
-        .sort((a,b) => {
-          return a.expiration-b.expiration;
-        })
-        .map((itemObj) => (
-          <FridgeListSidebarItem
-            ingredientID = {itemObj.ingredientID}
-            qt = {itemObj.qt}
-            expiration = {itemObj.expiration}
-          />
-        ));
-      } else {
-        itemList = <div>Empty fridge!</div>;
-      }
-    }
+    const hasItems = fridgeList.length !== 0;
+    if (hasItems) {
+			itemList = fridgeList
+			.sort((a,b) => {
+				return a.expiration-b.expiration;
+			})
+			.map((itemObj) => (
+				<FridgeListSidebarItem
+					ingredientID = {itemObj.ingredientID}
+					qt = {itemObj.qt}
+					expiration = {itemObj.expiration}
+				/>
+			));
+		} else {
+			itemList = <div>Empty fridge!</div>;
+		}
 
     return (
       <div className="fridgelistsidebar-box">
@@ -81,4 +56,14 @@ class FridgeListSidebar extends Component {
   }
 }
 
-export default FridgeListSidebar;
+const mapStateToProps = (state) => {
+  return {
+    fridgeList: state.fridgeList.fridgeList,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return { };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FridgeListSidebar);

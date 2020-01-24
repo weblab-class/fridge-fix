@@ -4,7 +4,6 @@ const UserSchema = new mongoose.Schema({
   name: String,
   googleid: String,
   fridgeList: [{
-    listID: Number,
     ingredientID: Number,
     qt: Number,
     expiration: Date
