@@ -1,0 +1,35 @@
+.Fridge-List-Item-Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  
+    height: 40px;
+    width:100%;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    background: #FFFFFF;
+    border: 5px solid;
+    box-sizing: border-box;
+}
+
+.Fridge-List-Item-Text {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+}
+
+.fridgelistsidebaritem-safe {
+    border-color: #BDBDBD;
+}
+
+.fridgelistsidebaritem-warning {
+    border-color: var(--orange);
+}
+
+.fridgelistsidebaritem-expired {
+    border-color: var(--red);
+}

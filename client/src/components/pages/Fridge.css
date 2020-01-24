@@ -1,0 +1,12 @@
+.feed-container {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+
+    background-color: var(--lightgrey);
+}
+  
+.feed-item {
+    margin: 15px;
+}  
