@@ -1,12 +1,14 @@
 .ShopList-container{
     display: flex;
     flex-direction: row;
+    margin: var(--m);
 }
 
 .ShopList-bgbox{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: var(--m);
 
     width: 636px;
     height: 898px;
@@ -19,6 +21,8 @@
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
+    padding: 0px;
+    margin: 0px;
     color: var(--textgray);
 }
 

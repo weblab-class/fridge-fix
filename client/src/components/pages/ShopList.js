@@ -37,6 +37,13 @@ class ShopList extends Component {
         qt = {itemObj.qt}
       />
     ));
+    // console.log(itemList);
+    if (itemList.length<15) {
+      let itemZeros = new Array(15-itemList.length).fill(<ShopListItem ingredientID=" " qt=" " />);
+      // console.log(itemZeros);
+      itemList = itemList.concat(itemZeros);
+      // console.log(itemList);
+    }
 
     return (
       <div className="ShopList-container">
