@@ -55,7 +55,40 @@
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
-    align-items: center;
     text-align: center;
     color: var(--white);
+}
+
+.About-oddText{
+    font-size: 72px;
+    color: var(--white);
+    text-align: left;
+}
+
+.About-evenText{
+    font-size: 72px;
+    color: var(--black);
+    text-align: right;
+}
+
+.About-box{
+    width: 989px;
+    height: 650px;
+    left: 360px;
+    top: 297px;
+}
+
+.About-oddBox{
+    background-color: var(--white);
+}
+
+.About-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.About-pg1{
+    background-color: var(--lightblue);
 }

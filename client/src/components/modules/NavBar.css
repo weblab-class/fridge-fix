@@ -2,6 +2,8 @@
     padding: 2px var(--s) 0px var(--s);
     background-color: var(--white);
     outline: 2px solid var(--textgrey);
+    position: fixed;
+    z-index: 9999;
 }
 
 .NavBar-button {
