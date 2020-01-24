@@ -80,6 +80,7 @@
 
 .About-oddBox{
     background-color: var(--white);
+    align-self: flex-end;
 }
 
 .About-page{
