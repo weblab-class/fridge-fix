@@ -18,6 +18,10 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 
+import { connect } from 'react-redux';
+
+import * as fridgeListActions from "../actions/fridgeListActions";
+
 const GOOGLE_CLIENT_ID = "848241716739-mbsjshm9umshpbg7hu2cnntrkcdd1gf3.apps.googleusercontent.com";
 
 
@@ -38,6 +42,7 @@ class App extends Component {
       if (user._id) {
         // they are registed in the database, and currently logged in.
         this.setState({ userId: user._id });
+        this.props.initializeFridgeList(user.fridgeList);
       }
     });
   }
@@ -50,6 +55,7 @@ class App extends Component {
     post("/api/login", { token: userToken }).then((user) => {
       // the server knows we're logged in now
       this.setState({userId: user._id})
+      this.props.initializeFridgeList(user.fridgeList);
       console.log(user);
     });
   };
@@ -57,6 +63,7 @@ class App extends Component {
   handleLogout = () => {
     console.log("Logged out successfully!");
     this.setState({ userId: undefined });
+    this.props.clearFridgeList();
     post("/api/logout");
   };
 
@@ -97,4 +104,15 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    initializeFridgeList: (fridgeList) => dispatch(fridgeListActions.initializeFridgeList(fridgeList)),
+    clearFridgeList: () => dispatch(fridgeListActions.clearFridgeList()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
