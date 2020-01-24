@@ -1,0 +1,25 @@
+.ShopListItem-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 40px;
+    width:100%;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    background: var(--yellow);
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.ShopListItem-text {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    
+    text-align: center;
+}
+
