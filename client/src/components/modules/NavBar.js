@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
-
+   
 import "./NavBar.css";
 import { Redirect } from "react-router-dom";
 import { get, post } from "../../utilities";
@@ -19,7 +19,7 @@ class NavBar extends Component {
     super(props);
     this.state = {};
   }
-
+  
   handleLogin = (res) => {
     // 'res' contains the response from Google's authentication servers
     console.log(res);

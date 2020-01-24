@@ -3,7 +3,7 @@ import { Link } from "@reach/router";
 import "./FridgeList.css"
 import { get } from "../../utilities";
 import FridgeListItem from "./FridgeListItem.js";
-
+  
 const testFridgeList = [
   {
     ingredientID: "onion",

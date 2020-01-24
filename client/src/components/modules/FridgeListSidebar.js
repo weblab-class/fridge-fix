@@ -27,7 +27,7 @@ const testFridgeList = [
     expiration: Date.now()+10500000
   },
 ]
-
+  
 class FridgeListSidebar extends Component {
   constructor(props) {
     super(props);

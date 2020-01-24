@@ -5,7 +5,7 @@ class ShopList extends Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
     return (
       <div>
@@ -17,3 +17,4 @@ class ShopList extends Component {
 }
 
 export default ShopList;
+  

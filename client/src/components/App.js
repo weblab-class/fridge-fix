@@ -5,9 +5,9 @@ import NavBar from "./modules/NavBar.js";
 import RecipePage from "./pages/RecipePage.js";
 import Skeleton from "./pages/Skeleton.js";
 import Fridge from "./modules/FridgeList.js";
-
+   
 //import FridgeListItem from "./modules/FridgeListItem.js";
-
+    
 import About from "./pages/About.js";
 import Feed from "./pages/Feed.js";
 import ShopList from "./pages/ShopList.js";

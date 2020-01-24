@@ -9,7 +9,7 @@ import "./FridgeListItem.css";
  * @param {string} qt
  * @param {string} expiration
  */
-
+    
 const alertThresh = [
 	{
 		threshold: 10000000, //~1day

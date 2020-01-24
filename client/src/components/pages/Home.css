@@ -4,7 +4,7 @@
     padding: 0 5%;
     margin: var(--m);
   }
-  
+    
 
 .Home-image {
     height: 300px;
@@ -15,7 +15,7 @@
     background-position-y: center;
     background-position-x: center;
     background-repeat: no-repeat;
-  
+    
     /* it makes the clue thing, takes smaller dimension to fill div */
     background-size: contain;
   

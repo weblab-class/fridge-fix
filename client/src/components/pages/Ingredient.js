@@ -4,7 +4,7 @@ class Ingredient extends Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
     return (
       <div>
@@ -14,5 +14,6 @@ class Ingredient extends Component {
     );
   }
 }
-
+ 
 export default Ingredient;
+ 

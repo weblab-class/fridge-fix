@@ -21,7 +21,7 @@ const testShopList = [
       qt: 2,
     },
   ]
-
+  
 class ShopList extends Component {
     constructor(props) {
       super(props)

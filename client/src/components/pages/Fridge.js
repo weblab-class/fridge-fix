@@ -8,7 +8,7 @@ class Fridge extends Component {
   constructor(props) {
     super(props);
   }
-
+  
   componentDidMount() {
 
   }
@@ -24,5 +24,5 @@ class Fridge extends Component {
     );
   }
 }
-
+  
 export default Feed;

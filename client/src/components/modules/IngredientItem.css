@@ -9,7 +9,7 @@
 
     padding: var(--xs) var(--s);
 }
-
+  
 .item-title {
     font-family: "Open Sans", sans-serif;
     font-size: var(--m);

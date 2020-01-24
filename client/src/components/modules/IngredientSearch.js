@@ -20,7 +20,7 @@ exptime: 140000},
 pic: "",
 desc: "red",
 exptime: 3000},]
-
+  
 class IngredientSearch extends Component {
   constructor(props) {
     super(props);

@@ -20,7 +20,7 @@ class IngredientItem extends Component {
   addItem = (event) => {
 		console.log("added")
   }
-
+  
   render() {
     return (
 			<div className="item-container">
