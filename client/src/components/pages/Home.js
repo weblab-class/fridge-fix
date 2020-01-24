@@ -23,11 +23,18 @@ class Home extends Component {
           <div className="Home-introText u-textCenter">  
             Take control of your shopping and nutrition with FridgeFix.
           </div>
-          {/* <div className="u-flex u-flex-justifyCenter"> 
-              <div className="Home-button" onClick={this.props.handleLogin}>
-                <div className="Home-buttonText"> Register </div>
+          <div className="u-flex u-flex-justifyCenter"> 
+              <div className="Home-button">
+                <div className="Home-buttonText"> Learn More! </div>
               </div>
-          </div> */}
+          </div>
+
+          <div className="About-page About-pg1">
+            <div className="About-oddText">
+              KNOW YOUR FRIDGE  
+            </div>
+            <div className="About-box About-oddBox"/>
+          </div>
         </>
       );
     }

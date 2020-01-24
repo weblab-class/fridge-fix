@@ -1,7 +1,14 @@
 .NavBar-container {
-    padding: 2px var(--s) 0px var(--s);
+    padding:  0px;
     background-color: var(--white);
     outline: 2px solid var(--textgrey);
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    margin: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .NavBar-button {
