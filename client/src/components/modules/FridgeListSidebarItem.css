@@ -15,7 +15,7 @@
 }
 
 .fridgelistsidebaritem-text {
-    font-family: Open Sans;
+    font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -28,9 +28,9 @@
 }
 
 .fridgelistsidebaritem-warning {
-    border-color: #FDB13E;
+    border-color: var(--orange);
 }
 
 .fridgelistsidebaritem-expired {
-    border-color: rgba(251, 43, 43, 0.81);
+    border-color: var(--red);
 }
