@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
         shopList: [action.shopItem].concat(state.stories),
       });
     case shopListActionTypes.deleteShopItem:
-      let newShopList = [state.shopList];
+      let newShopList = state.shopList.slice(0);
       newShopList.splice(action.index,1);
       return Object.assign({}, state, {
         shopList: newShopList,

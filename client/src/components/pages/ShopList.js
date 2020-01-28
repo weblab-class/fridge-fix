@@ -5,20 +5,20 @@ import ShopListItem from "../modules/ShopListItem.js";
 import { connect } from 'react-redux';
 
 
-// const testShopList = [
-//   {
-//     ingredientID: "onion",
-//     qt: 1,
-//   },
-//   {
-//     ingredientID: "egg",
-//     qt: 12,
-//   },
-//   {
-//     ingredientID: "bacon",
-//     qt: 2,
-//   },
-// ]
+const testShopList = [
+  {
+    ingredientID: 0,
+    qt: 1,
+  },
+  {
+    ingredientID: 1,
+    qt: 12,
+  },
+  {
+    ingredientID: 2,
+    qt: 2,
+  },
+]
 
 class ShopList extends Component {
   constructor(props) {
@@ -31,6 +31,7 @@ class ShopList extends Component {
 
   render() {
     const { shopList } = this.props;
+    // let shopList = testShopList;
     let itemList = null;
     itemList = shopList.map((itemObj,index) => (
       <ShopListItem
@@ -39,12 +40,10 @@ class ShopList extends Component {
         qt = {itemObj.qt}
       />
     ));
-    // console.log(itemList);
+    console.log(itemList);
     if (itemList.length<15) {
       let itemZeros = new Array(15-itemList.length).fill(<ShopListItem ingredientID=" " qt=" " />);
-      console.log(itemZeros);
       itemList = itemList.concat(itemZeros);
-      console.log(itemList);
     }
 
     return (
@@ -52,10 +51,6 @@ class ShopList extends Component {
         <div className="ShopList-bgbox">
           <h1 className="ShopList-title">Shopping List</h1>
           {itemList}
-          <button 
-					className="item-add"
-					onClick={this.addItem}
-				>+</button>
         </div>
         <IngredientSearch targetList="shop" />
       </div>

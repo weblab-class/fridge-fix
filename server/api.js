@@ -35,7 +35,7 @@ router.get("/search-start-with", (req, res)=> {
     {"name": {$regex : "^E"}} 
   ).then( (ingredients) => {
     res.send(ingredients)
-  }
+  })
 })
 
 //stripped to just return all recipes and ingredients

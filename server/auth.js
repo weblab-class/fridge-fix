@@ -25,7 +25,8 @@ function getOrCreateUser(user) {
     const newUser = new User({
       name: user.name,
       googleid: user.sub,
-      fridgeList: []
+      fridgeList: [],
+      shopList: []
     });
 
     return newUser.save();

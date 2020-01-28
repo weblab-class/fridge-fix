@@ -12,6 +12,7 @@ import { get } from "../../utilities";
  * Proptypes
  * @param {string} ingredientID
  * @param {string} qt
+ * @param index
  */
 
 
@@ -48,6 +49,7 @@ class ShopListItem extends Component {
     console.log(fridgeItem);
     this.props.addFridgeItem(fridgeItem);
     console.log('put into fridge');
+    console.log(this.props.index);
     this.props.deleteShopItem(this.props.index);
     console.log('yeeted out of shoplist');
   }
