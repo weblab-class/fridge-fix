@@ -31,6 +31,7 @@ class IngredientItem extends Component {
       qt: 1,
       expiration: Date.now() + this.props.ingredient.exptime,
     }
+    console.log(newItem);
 
     this.props.addFridgeItem(newItem);
   }
@@ -38,8 +39,8 @@ class IngredientItem extends Component {
   render() {
     return (
 			<div className="item-container">
-				<div className="item-title">{this.props.ingredient.title}</div>
-				<button 
+				<div className="item-title">{this.props.ingredient.name}</div>
+				<button
 					className="item-add"
 					onClick={this.addItem}
 				>+</button>

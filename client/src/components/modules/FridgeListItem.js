@@ -30,13 +30,15 @@ class FridgeListItem extends Component {
   constructor(props) {
 		super(props);
 		
-		this.state = {};
+		this.state = {
+			name: "loading"
+		};
 	}
 	
 	componentDidMount() {
 		get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
     .then((ingredient) => {
-      this.setState({name: ingredient.name});
+			this.setState({name: ingredient.name});
     });
 	}
 
@@ -59,16 +61,11 @@ class FridgeListItem extends Component {
 		console.log(this.props.index);
 	}
 
-  render() {
-		let name = "loading";
-		if (this.state.name) {
-			name = this.state.name;
-		}
-		
+  render() {		
     return (
       <div className={`fridgelistitem-box ${this.getStatus()}`}>
         <p className="fridgelistitem-text">qt. {this.props.qt}</p>
-        <p className="fridgelistitem-text">{name}</p>
+        <p className="fridgelistitem-text">{this.state.name+this.props.ingredientID}</p>
 				<button 
 					className="fridgelistitem-delete"
 					onClick={this.deleteItem}
