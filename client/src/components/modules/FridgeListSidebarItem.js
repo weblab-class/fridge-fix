@@ -32,6 +32,8 @@ class FridgeListSidebarItem extends Component {
 	componentDidMount() {
 		get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
     .then((ingredient) => {
+			console.log(ingredient);
+			console.log(ingredient.name);
       this.setState({name: ingredient.name});
     });
 	}

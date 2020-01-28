@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router } from "@reach/router";
+import { Router, Redirect } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import NavBar from "./modules/NavBar.js";
 import RecipePage from "./pages/RecipePage.js";
@@ -73,6 +73,11 @@ class App extends Component {
   };
 
   render() {
+    let redirect = {};
+    if (this.state.redirect != null) {
+      redirect = <Redirect to={`/${this.state.redirect}`}/>;
+    };
+
     return (
       <>
       <NavBar
@@ -87,6 +92,7 @@ class App extends Component {
           handleLogin={this.handleLogin}
           clientId = {GOOGLE_CLIENT_ID} 
         />
+        <div path="/">{redirect}</div>
         <Fridge path="/fridge" />
         <Feed path="/feed" />
         <RecipePage path="/recipe/:recipeID" />
