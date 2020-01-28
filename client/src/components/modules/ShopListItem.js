@@ -19,8 +19,9 @@ class ShopListItem extends Component {
   render() {
     return (
       <div className={`ShopListItem-box`}>
-        <p className="ShopListItem-text">{this.props.qt}</p>
-        <p className="ShopListItem-text">{this.props.ingredientID}</p>
+        <p className="ShopListItem-text ShopListItem-qt">{this.props.qt}</p>
+        <p className="ShopListItem-text ShopListItem-name">{this.props.ingredientID}</p>
+        <div className="ShopListItem-buttonContainer"> <button> Log </button> </div>
       </div>
     );
   }

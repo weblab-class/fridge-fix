@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import IngredientSearch from "../modules/IngredientSearch.js";
 import "./ShopList.css";
 import ShopListItem from "../modules/ShopListItem.js";
+import { connect } from 'react-redux';
+
 
 const testShopList = [
   {
@@ -30,6 +32,7 @@ class ShopList extends Component {
   }
 
   render() {
+    const { shopList } = this.props;
     let itemList = null;
     itemList = this.state.items.map((itemObj) => (
       <ShopListItem
@@ -57,4 +60,15 @@ class ShopList extends Component {
   }
 }
 
-export default ShopList;
+const mapStateToProps = (state) => {
+  return {
+    shopList: state.shopList.shopList,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return { };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopList);

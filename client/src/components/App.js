@@ -21,6 +21,8 @@ import { get, post } from "../utilities";
 import { connect } from 'react-redux';
 
 import * as fridgeListActions from "../actions/fridgeListActions";
+import * as shopListActions from "../actions/shopListActions";
+
 
 const GOOGLE_CLIENT_ID = "848241716739-mbsjshm9umshpbg7hu2cnntrkcdd1gf3.apps.googleusercontent.com";
 
@@ -43,6 +45,7 @@ class App extends Component {
         // they are registed in the database, and currently logged in.
         this.setState({ userId: user._id });
         this.props.initializeFridgeList(user.fridgeList);
+        this.props.initializeShopList(user.shopList);
       }
     });
   }
@@ -56,6 +59,7 @@ class App extends Component {
       // the server knows we're logged in now
       this.setState({userId: user._id})
       this.props.initializeFridgeList(user.fridgeList);
+      this.props.initializeShopList(user.shopList);
       console.log(user);
     });
   };
@@ -64,6 +68,7 @@ class App extends Component {
     console.log("Logged out successfully!");
     this.setState({ userId: undefined });
     this.props.clearFridgeList();
+    this.props.clearShopList();
     post("/api/logout");
   };
 
@@ -108,11 +113,16 @@ const mapStateToProps = (state) => {
   return {  };
 };
 
+//
 const mapDispatchToProps = (dispatch) => {
   return {
     initializeFridgeList: (fridgeList) => dispatch(fridgeListActions.initializeFridgeList(fridgeList)),
     clearFridgeList: () => dispatch(fridgeListActions.clearFridgeList()),
+    initializeShopList: (shopList) => dispatch(shopListActions.initializeShopList(shopList)),
+    clearShopList: () => dispatch(shopListActions.clearShopList())
   };
 };
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

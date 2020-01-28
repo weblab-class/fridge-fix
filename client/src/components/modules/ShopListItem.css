@@ -6,9 +6,8 @@
 
     height: 40px;
     width:100%;
-    padding-left: 8px;
-    padding-right: 8px;
-
+    padding: 0px 8px;
+    margin: 0px;
     background: var(--yellow);
     border: 1px solid;
     box-sizing: border-box;
@@ -19,7 +18,25 @@
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
-    
+    flex-basis: 0;
     text-align: center;
+    padding: 0px;
+    margin: 0px;
 }
 
+.ShopListItem-qt {
+    flex-grow: 1;
+}
+
+.ShopListItem-name {
+    flex-grow: 10;
+}
+
+.ShopListItem-qt + .ShopListItem-name {
+    border-left: solid 1px var(--black);
+}
+
+.ShopListItem-buttonContainer {
+    flex-grow: 2;
+    flex-basis: 0;
+}
