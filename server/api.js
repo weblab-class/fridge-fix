@@ -30,6 +30,13 @@ router.get("/recipe", (req, res) => {
   Recipe.findOne({recipeID: req.query.recipeID}).then((recipe) => res.send(recipe));
 })
 
+router.get("/search-start-with", (req, res)=> {
+  Ingredient.find(
+    {"name": {$regex : "^E"}} 
+  ).then( (ingredients) => {
+    res.send(ingredients)
+  })
+})
 //stripped to just return all recipes
 router.get("/search/recipes", (req, res) => {
   if (req.query.query.length == 0) {
@@ -55,6 +62,8 @@ router.get("/whoami", (req, res) => {
     res.send({});
   }
 });
+
+
 
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in

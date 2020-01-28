@@ -27,13 +27,13 @@ class IngredientSearch extends Component {
 
     this.state = {
 			query: "",
-    	results: hardcode
+    	results: [],
     }
   }
 
   handleChange = (event) => {
 		this.setState({query: event.target.value});
-	}
+  }
 
   render() {		
 		let itemList = null;
@@ -49,7 +49,6 @@ class IngredientSearch extends Component {
     } else {
       itemList = <div>No results!</div>;
     }
-      
     return (
       <div className = "ingredientsearch-container">
 				<input
