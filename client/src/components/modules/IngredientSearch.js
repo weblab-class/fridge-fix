@@ -66,7 +66,6 @@ class IngredientSearch extends Component {
         itemList = <div>No results!</div>;
       }
     }
-      
     return (
       <div className = "ingredientsearch-container">
 				<input

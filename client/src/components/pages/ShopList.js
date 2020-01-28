@@ -20,8 +20,6 @@ import { connect } from 'react-redux';
 //   },
 // ]
 
-
-
 class ShopList extends Component {
   constructor(props) {
     super(props);
@@ -54,6 +52,10 @@ class ShopList extends Component {
         <div className="ShopList-bgbox">
           <h1 className="ShopList-title">Shopping List</h1>
           {itemList}
+          <button 
+					className="item-add"
+					onClick={this.addItem}
+				>+</button>
         </div>
         <IngredientSearch targetList="shop" />
       </div>
