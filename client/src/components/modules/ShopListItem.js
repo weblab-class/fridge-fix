@@ -23,13 +23,19 @@ class ShopListItem extends Component {
   }
 
   componentDidMount() {
-		get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
-    .then((ingredient) => {
-      this.setState({
-        name: ingredient.name,
-        exptime: ingredient.exptime
+    if (this.props.ingredientID!==' ') {
+      console.log('trying to find name');
+      get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
+      .then((ingredient) => {
+        this.setState({
+          name: ingredient.name,
+          exptime: ingredient.exptime
+        });
       });
-    });
+    } else {this.setState({
+      name: '    ',
+      exptime: null
+    })};
   }
   
   moveToFridge = () => {
@@ -50,20 +56,30 @@ class ShopListItem extends Component {
 
   render() {
 
-		let name = "loading";
-		if (this.state.name) {
-			name = this.state.name;
-		}
+		// let name = "loading";
+		// if (this.state.name) {
+		// 	name = this.state.name;
+		// }
 
     return (
       <div className={`ShopListItem-box`}>
         <p className="ShopListItem-text ShopListItem-qt">{this.props.qt}</p>
-        <p className="ShopListItem-text ShopListItem-name">{name}</p>
-        <div className="ShopListItem-buttonContainer"> 
-          <button onClick={this.moveToFridge}> 
-            Log 
-          </button> 
+        <p className="ShopListItem-text ShopListItem-name">{this.state.name}</p>
+        {this.state.exptime ? (
+          <>
+          <div className="ShopListItem-buttonContainer"> 
+            <button onClick={this.moveToFridge}> 
+              Log 
+            </button> 
           </div>
+          </>
+        ) : (
+          <>
+          <div className="ShopListItem-buttonContainer"> </div>
+          </>
+        )
+        
+        }
       </div>
     );
   }
