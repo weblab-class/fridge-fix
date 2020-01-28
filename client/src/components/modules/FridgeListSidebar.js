@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import FridgeListSidebarItem from "./FridgeListSidebarItem.js";
 import "./FridgeListSidebar.css";
-import { get } from "../../utilities";
 import { connect } from 'react-redux';
 
 /**

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import IngredientItem from "./IngredientItem.js";
+import { get } from "../../utilities";
 
 import "./IngredientSearch.css";
 
@@ -27,27 +28,43 @@ class IngredientSearch extends Component {
 
     this.state = {
 			query: "",
-    	results: [],
     }
   }
 
-  handleChange = (event) => {
-		this.setState({query: event.target.value});
+  handleChange = async (event) => {
+    await this.setState({query: event.target.value});
+    this.queryIngredients();
+  }
+
+  componentDidMount() {
+    this.queryIngredients();
+  }
+  
+  queryIngredients = () => {
+    get( `/api/search/ingredients`, {query: this.state.query})
+    .then((ingredients) => this.setState({results: ingredients}));
   }
 
   render() {		
 		let itemList = null;
-    const hasItems = this.state.results.length !== 0;
-    if (hasItems) {
-      itemList = this.state.results
-      .map((itemObj) => (
-        <IngredientItem
-					ingredient = {itemObj}
-					targetList = {this.props.targetList}
-        />
-      ));
+    let numResults = 0;
+    
+    if (!this.state.results) {
+			itemList = <div> Loading! </div>;
     } else {
-      itemList = <div>No results!</div>;
+      const hasItems = this.state.results.length !== 0;
+      if (hasItems) {
+				itemList = this.state.results
+				.map((itemObj) => (
+					<IngredientItem
+						ingredient = {itemObj}
+						targetList = {this.props.targetList}
+					/>
+				));
+        numResults = this.state.results.length;
+      } else {
+        itemList = <div>No results!</div>;
+      }
     }
     return (
       <div className = "ingredientsearch-container">
@@ -58,7 +75,7 @@ class IngredientSearch extends Component {
 					onChange = {this.handleChange}
 					placeholder = "search ingredients..."
 				/>
-				<div className="ingredientsearch-results">{`${this.state.results.length} results`}</div>
+				<div className="ingredientsearch-results">{`${numResults} results`}</div>
 				{itemList}
       </div>
     );

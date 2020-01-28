@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import FridgeList from "../modules/FridgeList.js";
 import RecipeFeed from "../modules/RecipeFeed.js";
+import IngredientSearch from "../modules/IngredientSearch.js";
 
-import "./feed.css";
+import "./Feed.css";
 
 class Fridge extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Fridge extends Component {
       <div>
         <div className= "feed-container">
           <span className="feed-item"><FridgeList /></span>
-          <span className="feed-item"><RecipeFeed /></span>
+          <IngredientSearch className="feed-item" targetList="shop" />
         </div>
       </div>
     );

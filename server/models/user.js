@@ -7,7 +7,12 @@ const UserSchema = new mongoose.Schema({
     ingredientID: Number,
     qt: Number,
     expiration: Date
+  }],
+  shopList: [{
+    ingredientID: Number,
+    qt: Number,
   }]
+
 });
 
 // compile model from schema

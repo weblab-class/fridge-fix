@@ -55,7 +55,41 @@
     font-style: normal;
     font-weight: 600;
     font-size: 64px;
-    align-items: center;
     text-align: center;
     color: var(--white);
+}
+
+.About-oddText{
+    font-size: 56px;
+    color: var(--white);
+    text-align: left;
+}
+
+.About-evenText{
+    font-size: 72px;
+    color: var(--black);
+    text-align: right;
+}
+
+.About-box{
+    width: 120vh;
+    height: 69vh;
+}
+
+.About-oddBox{
+    background-color: var(--white);
+    align-self: flex-end;
+    padding: 0 128px 0 0 ;
+}
+
+.About-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: var(--xl);
+}
+
+
+.About-pg1{
+    background-color: var(--lightblue);
 }

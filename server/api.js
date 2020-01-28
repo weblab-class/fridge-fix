@@ -35,9 +35,18 @@ router.get("/search-start-with", (req, res)=> {
     {"name": {$regex : "^E"}} 
   ).then( (ingredients) => {
     res.send(ingredients)
-  })
+  }
 })
-//stripped to just return all recipes
+
+//stripped to just return all recipes and ingredients
+router.get("/search/ingredients", (req, res) => {
+  if (req.query.query.length == 0) {
+    Ingredient.find({}).then((ingredients) => res.send(ingredients));
+  } else {
+    res.send([]);
+  }
+})
+
 router.get("/search/recipes", (req, res) => {
   if (req.query.query.length == 0) {
     Recipe.find({}).then((recipes) => res.send(recipes));

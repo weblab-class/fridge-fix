@@ -2,35 +2,39 @@ import React, { Component } from "react";
 import IngredientSearch from "../modules/IngredientSearch.js";
 import "./ShopList.css";
 import ShopListItem from "../modules/ShopListItem.js";
+import { connect } from 'react-redux';
 
-const testShopList = [
-  {
-    ingredientID: "onion",
-    qt: 1,
-  },
-  {
-    ingredientID: "egg",
-    qt: 12,
-  },
-  {
-    ingredientID: "bacon",
-    qt: 2,
-  },
-]
+
+// const testShopList = [
+//   {
+//     ingredientID: "onion",
+//     qt: 1,
+//   },
+//   {
+//     ingredientID: "egg",
+//     qt: 12,
+//   },
+//   {
+//     ingredientID: "bacon",
+//     qt: 2,
+//   },
+// ]
 
 class ShopList extends Component {
   constructor(props) {
     super(props);
 
     this.state={
-      items: testShopList
+      // items: testShopList
     }
   }
 
   render() {
+    const { shopList } = this.props;
     let itemList = null;
-    itemList = this.state.items.map((itemObj) => (
+    itemList = shopList.map((itemObj,index) => (
       <ShopListItem
+        index = {index}
         ingredientID = {itemObj.ingredientID}
         qt = {itemObj.qt}
       />
@@ -38,9 +42,9 @@ class ShopList extends Component {
     // console.log(itemList);
     if (itemList.length<15) {
       let itemZeros = new Array(15-itemList.length).fill(<ShopListItem ingredientID=" " qt=" " />);
-      // console.log(itemZeros);
+      console.log(itemZeros);
       itemList = itemList.concat(itemZeros);
-      // console.log(itemList);
+      console.log(itemList);
     }
 
     return (
@@ -59,4 +63,15 @@ class ShopList extends Component {
   }
 }
 
-export default ShopList;
+const mapStateToProps = (state) => {
+  return {
+    shopList: state.shopList.shopList,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return { };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopList);
