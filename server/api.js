@@ -30,7 +30,14 @@ router.get("/recipe", (req, res) => {
   Recipe.findOne({recipeID: req.query.recipeID}).then((recipe) => res.send(recipe));
 })
 
-//stripped to just return all recipes
+//stripped to just return all recipes and ingredients
+router.get("/search/ingredients", (req, res) => {
+  if (req.query.query.length == 0) {
+    Ingredient.find({}).then((ingredients) => res.send(ingredients));
+  } else {
+    res.send([]);
+  }
+})
 router.get("/search/recipes", (req, res) => {
   if (req.query.query.length == 0) {
     Recipe.find({}).then((recipes) => res.send(recipes));
