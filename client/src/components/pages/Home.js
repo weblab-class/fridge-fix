@@ -15,7 +15,7 @@ class Home extends Component {
     
     render() {
       return (
-        <>
+        <div className="scroll">
           {/* // <img src="images/HomeIcon.png" width="90%" /> */}
           <div className="Home-imageContainer">
             <div className="Home-image" />
@@ -24,18 +24,18 @@ class Home extends Component {
             Take control of your shopping and nutrition with FridgeFix.
           </div>
           <div className="u-flex u-flex-justifyCenter"> 
-              <div className="Home-button">
-                <div className="Home-buttonText"> Learn More! </div>
-              </div>
+              <a href="#about" className="Home-button">
+                <div className="Home-buttonText"> About </div>
+              </a>
           </div>
-
-          <div className="About-page About-pg1">
-            <div className="About-oddText">
-              KNOW YOUR FRIDGE  
-            </div>
-            <div className="About-box About-oddBox"/>
+          {/* <a id="about"></a> */}
+          <div className="About-page About-pg1" id="about">
+            <div className="About-text About-oddText">KNOW YOUR FRIDGE</div>
+            <div className="About-text About-evenText">KEEP TRACK OF GROCERIES</div>
+            <div className="About-text About-oddText">DON'T LET FOOD EXPIRE!</div>
+            <div className="About-text About-evenText">FIND OUT WHAT YOU CAN MAKE</div>
           </div>
-        </>
+        </div>
       );
     }
   }

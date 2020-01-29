@@ -101,11 +101,7 @@ class App extends Component {
         <Profile path="/profile/:userId" />
         <Ingredient path="/ingredient" />
 
-        {/* <Skeleton path="/skeleton" 
-        handleLogin={this.handleLogin}
-        handleLogout={this.handleLogout}
-        userId={this.state.userId}          
-        /> */}
+        {/* <Skeleton path="/skeleton" /> */}
 
         <NotFound default />
       </Router>
