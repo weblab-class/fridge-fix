@@ -28,6 +28,7 @@ class FridgeList extends Component {
       .map((itemObj) => (
         <FridgeListItem
           index = {itemObj.i}
+          _id = {itemObj.data._id}
           ingredientID = {itemObj.data.ingredientID}
           qt = {itemObj.data.qt}
           expiration = {itemObj.data.expiration}

@@ -27,16 +27,18 @@ class IngredientItem extends Component {
   }
 
   addItem = (event) => {
-		const newItem = {
+		let body = {
       ingredientID: this.props.ingredient.ingredientID,
       qt: 1,
       expiration: Date.now() + this.props.ingredient.exptime,
     }
-    console.log(newItem);
-
-    post(`/api/fridge`, {body: newItem}).then(
-      this.props.addFridgeItem(newItem)
-    );
+    
+    post(`/api/fridgeadd`, body).then( (res) => {
+      if (res._id) {
+        body._id = res._id;
+        this.props.addFridgeItem(body)
+      }
+    });
   }
 
   render() {

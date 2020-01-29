@@ -39,10 +39,12 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount () {
+    console.log("refreshed");
+    //await post("/api/refresh");
     get("/api/whoami").then((user) => {
       if (user._id) {
-        // they are registed in the database, and currently logged in.
+        // they are registered in the database, and currently logged in.
         this.setState({ userId: user._id });
         this.props.initializeFridgeList(user.fridgeList);
         this.props.initializeShopList(user.shopList);
