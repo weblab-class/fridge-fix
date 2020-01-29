@@ -19,19 +19,20 @@ class FridgeList extends Component {
     if (hasItems) {
       itemList = fridgeList
       .map((itemObj, index) => (
+        {data: itemObj,
+        i: index}
+      ))
+      .sort((a,b) => {
+        return a.data.expiration-b.data.expiration;
+      })
+      .map((itemObj) => (
         <FridgeListItem
-          key={index}
-          index = {index}
-          ingredientID = {itemObj.ingredientID}
-          qt = {itemObj.qt}
-          expiration = {itemObj.expiration}
+          index = {itemObj.i}
+          ingredientID = {itemObj.data.ingredientID}
+          qt = {itemObj.data.qt}
+          expiration = {itemObj.data.expiration}
         />
       ));
-
-      /*
-      .sort((a,b) => {
-        return a.expiration-b.expiration;
-      })*/
     } else {
       itemList = <div>Empty fridge!</div>;
     }
