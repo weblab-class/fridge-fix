@@ -33,13 +33,18 @@ class ShopList extends Component {
     const { shopList } = this.props;
     // let shopList = testShopList;
     let itemList = null;
-    itemList = shopList.map((itemObj,index) => (
+    itemList = shopList.map((itemObj, index) => (
+      {data: itemObj,
+      i: index}
+    )).map((itemObj) => (
       <ShopListItem
-        index = {index}
-        ingredientID = {itemObj.ingredientID}
-        qt = {itemObj.qt}
+        index = {itemObj.i}
+        ingredientID = {itemObj.data.ingredientID}
+        qt = {itemObj.data.qt}
+        expiration = {itemObj.data.expiration}
       />
     ));
+
     console.log(itemList);
     if (itemList.length<15) {
       let itemZeros = new Array(15-itemList.length).fill(<ShopListItem ingredientID=" " qt=" " />);

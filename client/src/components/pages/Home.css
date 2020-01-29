@@ -1,4 +1,11 @@
-
+.scroll {
+    scroll-behavior: smooth;
+    display: block;
+    overflow-y: scroll;
+    height: 200vh;
+    padding: 0;
+    margin: 0;
+}
 
 .Home-imageContainer {
     padding: 0 5%;
@@ -46,7 +53,7 @@
     flex-basis: 0;
     flex-grow: 0;
     padding: var(--xs) var(--m);
-    margin: var(--m);
+    margin: var(--l);
     text-decoration: none;
 }
 
@@ -59,15 +66,20 @@
     color: var(--white);
 }
 
+.About-text{
+    font-size: 64px;
+    padding: 20px;
+    font-family: Open Sans Condensed;
+    font-weight: bold;
+}
+
 .About-oddText{
-    font-size: 56px;
-    color: var(--white);
+    color: var(--lightgrey);
     text-align: left;
 }
 
 .About-evenText{
-    font-size: 72px;
-    color: var(--black);
+    color: var(--textgrey);
     text-align: right;
 }
 

@@ -19,7 +19,7 @@ class Fridge extends Component {
       <div>
         <div className= "feed-container">
           <span className="feed-item"><FridgeList /></span>
-          <IngredientSearch className="feed-item" targetList="shop" />
+          <IngredientSearch className="feed-item" targetList="fridge" />
         </div>
       </div>
     );

@@ -71,6 +71,12 @@ router.post("/fridge", auth.ensureLoggedIn, (req, res) => {
   //User.findOneAndUpdate({name: req.user.name}, {$push: {fridgeList: req.body.item}});
 });
 
+router.post("/shop", auth.ensureLoggedIn, (req, res) => {
+  console.log("i tried");
+  //User.findOneAndUpdate({name: req.user.name}, {$push: {shopList: req.body.item}});
+});
+
+
 router.get("/user", (req, res) => {
   User.findById(req.query.userid).then((user) => {
     res.send(user);
