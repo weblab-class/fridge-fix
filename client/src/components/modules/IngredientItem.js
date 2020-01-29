@@ -32,13 +32,23 @@ class IngredientItem extends Component {
       qt: 1,
       expiration: Date.now() + this.props.ingredient.exptime,
     }
-    
-    post(`/api/fridgeadd`, body).then( (res) => {
-      if (res._id) {
-        body._id = res._id;
-        this.props.addFridgeItem(body)
-      }
-    });
+    console.log(newItem);
+    if (this.props.targetList == 'fridge') {
+      post(`/api/fridgeadd`, body).then( (res) => {
+        if (res._id) {
+          body._id = res._id;
+          this.props.addFridgeItem(body)
+        }
+      });
+    }
+    else if (this.props.targetList == 'shop') {
+      console.log('trying to add');
+      console.log(newItem);
+
+      post(`/api/shop`, {body: newItem}).then(
+        this.props.addShopItem(newItem)
+      );  
+    }
   }
 
   render() {

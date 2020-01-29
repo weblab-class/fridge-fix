@@ -63,6 +63,12 @@ router.post("/fridgedelete", auth.ensureLoggedIn , (req, res) => {
   .then ((doc) => res.send({})).catch(res.send({}));
 });
 
+router.post("/shop", auth.ensureLoggedIn, (req, res) => {
+  console.log("i tried");
+  //User.findOneAndUpdate({name: req.user.name}, {$push: {shopList: req.body.item}});
+});
+
+
 router.get("/user", (req, res) => {
   User.findById(req.query.userid).then((user) => {
     res.send(user);

@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case shopListActionTypes.addShopItem:
       return Object.assign({}, state, {
-        shopList: [action.shopItem].concat(state.stories),
+        shopList: [action.shopItem].concat(state.shopList),
       });
     case shopListActionTypes.deleteShopItem:
       let newShopList = state.shopList.slice(0);
