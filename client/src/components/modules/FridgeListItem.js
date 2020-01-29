@@ -42,6 +42,13 @@ class FridgeListItem extends Component {
     });
 	}
 
+	componentDidUpdate() {
+		get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
+    .then((ingredient) => {
+			this.setState({name: ingredient.name});
+    });
+	}
+
   getStatus = () => {
 		let css = "fridgelistitem-safe";
 		const dateDif = this.props.expiration - Date.now();
@@ -65,7 +72,7 @@ class FridgeListItem extends Component {
     return (
       <div className={`fridgelistitem-box ${this.getStatus()}`}>
         <p className="fridgelistitem-text">qt. {this.props.qt}</p>
-        <p className="fridgelistitem-text">{this.state.name+this.props.ingredientID}</p>
+        <p className="fridgelistitem-text">{this.state.name}</p>
 				<button 
 					className="fridgelistitem-delete"
 					onClick={this.deleteItem}

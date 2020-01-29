@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 
 import "./IngredientItem.css";
+import { post } from "../../utilities";
 
 import { connect } from 'react-redux';
 import * as fridgeListActions from "../../actions/fridgeListActions";
@@ -33,7 +34,9 @@ class IngredientItem extends Component {
     }
     console.log(newItem);
 
-    this.props.addFridgeItem(newItem);
+    post(`/api/fridge`, {body: newItem}).then(
+      this.props.addFridgeItem(newItem)
+    );
   }
 
   render() {
