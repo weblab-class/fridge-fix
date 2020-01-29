@@ -12,16 +12,6 @@ import "./IngredientSearch.css";
  * @param {string} targetList
  */
 
-const hardcode = 
-[{title: "Egg",
-pic: "",
-desc: "yellow",
-exptime: 140000},
-{title: "Bacon",
-pic: "",
-desc: "red",
-exptime: 3000},]
-
 class IngredientSearch extends Component {
   constructor(props) {
     super(props);

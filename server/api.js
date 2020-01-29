@@ -30,23 +30,34 @@ router.get("/recipe", (req, res) => {
   Recipe.findOne({recipeID: req.query.recipeID}).then((recipe) => res.send(recipe));
 })
 
-router.get("/search-start-with", (req, res)=> {
+
+router.get("/search/ingredients", (req, res)=> {
   Ingredient.find(
-    {"name": {$regex : "^E"}} 
+    {name: new RegExp('^'+req.query.query, "i")} 
   ).then( (ingredients) => {
     res.send(ingredients)
   })
 })
 
-//stripped to just return all recipes and ingredients
-router.get("/search/ingredients", (req, res) => {
-  if (req.query.query.length == 0) {
-    Ingredient.find({}).then((ingredients) => res.send(ingredients));
-  } else {
-    res.send([]);
-  }
-})
+{/*router.get("/search/ingredients", (req, res)=> {
+  Ingredient.find(
+    {name: new RegExp('^'+req.query.query+'$', "i")} 
+  ).then( (ingredients) => {
+    res.send(ingredients)
+  })
 
+})
+*/}
+
+{/*router.get("/search/ingredients", (req, res)=> {
+  Ingredient.find(
+    {"name": {$regex : `^${req.query.query}`}} 
+  ).then( (ingredients) => {
+    res.send(ingredients)
+  })
+})*/}
+
+//stripped to just return all recipes
 router.get("/search/recipes", (req, res) => {
   if (req.query.query.length == 0) {
     Recipe.find({}).then((recipes) => res.send(recipes));
