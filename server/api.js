@@ -8,6 +8,7 @@
 */
 
 const express = require("express");
+const mongoose = require("mongoose");
 
 // import models so we can interact with the database
 const User = require("./models/user");
@@ -39,24 +40,6 @@ router.get("/search/ingredients", (req, res)=> {
   })
 })
 
-{/*router.get("/search/ingredients", (req, res)=> {
-  Ingredient.find(
-    {name: new RegExp('^'+req.query.query+'$', "i")} 
-  ).then( (ingredients) => {
-    res.send(ingredients)
-  })
-
-})
-*/}
-
-{/*router.get("/search/ingredients", (req, res)=> {
-  Ingredient.find(
-    {"name": {$regex : `^${req.query.query}`}} 
-  ).then( (ingredients) => {
-    res.send(ingredients)
-  })
-})*/}
-
 //stripped to just return all recipes
 router.get("/search/recipes", (req, res) => {
   if (req.query.query.length == 0) {
@@ -66,9 +49,18 @@ router.get("/search/recipes", (req, res) => {
   }
 })
 
-router.post("/fridge", auth.ensureLoggedIn, (req, res) => {
-  console.log("i tried");
-  //User.findOneAndUpdate({name: req.user.name}, {$push: {fridgeList: req.body.item}});
+router.post("/fridgeadd", auth.ensureLoggedIn, (req, res) => {
+  const myId= mongoose.Types.ObjectId();
+  req.body._id = myId;
+  res.send({_id: myId});
+
+  return User.findOneAndUpdate({_id: req.user._id}, {$push: {fridgeList: req.body}},{new : true})
+  .then ((doc) => res.send({})).catch(res.send({}));
+});
+router.post("/fridgedelete", auth.ensureLoggedIn , (req, res) => {
+  res.send({_id: req.body.body});
+  return User.findOneAndUpdate({_id: req.user._id}, {$pull: {fridgeList: {_id: req.body.body}}}, {new : true})
+  .then ((doc) => res.send({})).catch(res.send({}));
 });
 
 router.post("/shop", auth.ensureLoggedIn, (req, res) => {
@@ -85,6 +77,16 @@ router.get("/user", (req, res) => {
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
+/*
+router.post("/refresh", (req, res) => {
+  if (req.user) {
+    req.login(req.user,res.send(req.user));
+  } else {
+    res.send({});
+  }
+})
+*trynna fix issues with user not updating on refresh, only login (google.auth issue)
+*/
 router.get("/whoami", (req, res) => {
   if (req.user) {
     res.send(req.user);

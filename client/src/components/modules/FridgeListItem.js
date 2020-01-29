@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./FridgeListItem.css";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 import { connect } from 'react-redux';
 import * as fridgeListActions from "../../actions/fridgeListActions";
@@ -10,6 +10,7 @@ import * as fridgeListActions from "../../actions/fridgeListActions";
  *
  * Proptypes
  * @param index
+ * @param _id
  * @param {string} ingredientID
  * @param {string} qt
  * @param {string} expiration
@@ -64,8 +65,11 @@ class FridgeListItem extends Component {
 	
 	deleteItem = () => {
 		this.props.deleteFridgeItem(this.props.index);
-		console.log("delete");
-		console.log(this.props.index);
+			console.log("delete");
+			console.log(this.props.index);
+		post(`/api/fridgedelete`, {body: this.props._id}).then( (log) => {
+			console.log(log);
+		});
 	}
 
   render() {		
