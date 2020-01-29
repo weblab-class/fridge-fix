@@ -22,14 +22,14 @@ class IngredientItem extends Component {
     super(props);
 
     this.state = {
-
+      qt: 1
     }
   }
 
   addItem = (event) => {
 		let body = {
       ingredientID: this.props.ingredient.ingredientID,
-      qt: 1,
+      qt: this.state.qt,
       expiration: Date.now() + this.props.ingredient.exptime,
     }
     console.log(body);
@@ -51,10 +51,21 @@ class IngredientItem extends Component {
     }
   }
 
+  handleChange = (event) => {
+    this.setState({qt: event.target.value});
+  }
+
   render() {
     return (
 			<div className="item-container">
 				<div className="item-title">{this.props.ingredient.name}</div>
+        <input
+					className = "item-selector"
+					type = "number"
+					value = {this.state.qt}
+					onChange = {this.handleChange}
+					placeholder = "search recipes..."
+				/>
 				<button
 					className="item-add"
 					onClick={this.addItem}
