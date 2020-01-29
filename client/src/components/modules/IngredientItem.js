@@ -32,7 +32,7 @@ class IngredientItem extends Component {
       qt: 1,
       expiration: Date.now() + this.props.ingredient.exptime,
     }
-    console.log(newItem);
+    console.log(body);
     if (this.props.targetList == 'fridge') {
       post(`/api/fridgeadd`, body).then( (res) => {
         if (res._id) {
@@ -43,10 +43,10 @@ class IngredientItem extends Component {
     }
     else if (this.props.targetList == 'shop') {
       console.log('trying to add');
-      console.log(newItem);
+      console.log(body);
 
-      post(`/api/shop`, {body: newItem}).then(
-        this.props.addShopItem(newItem)
+      post(`/api/shop`, {body: body}).then(
+        this.props.addShopItem(body)
       );  
     }
   }
