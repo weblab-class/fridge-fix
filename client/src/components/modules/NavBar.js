@@ -7,7 +7,7 @@ import "./NavBar.css";
 import { Redirect } from "react-router-dom";
 
 //TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "848241716739-mbsjshm9umshpbg7hu2cnntrkcdd1gf3.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "541448499714-q9ec1k9acuh050r10m6oflmivngql3n8.apps.googleusercontent.com";
 
 /**
  * The Navigation Bar at the top of all pages. Takes no props.
