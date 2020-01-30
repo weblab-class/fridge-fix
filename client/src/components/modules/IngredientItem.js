@@ -42,12 +42,13 @@ class IngredientItem extends Component {
       });
     }
     else if (this.props.targetList == 'shop') {
-      console.log('trying to add');
-      console.log(body);
-
-      post(`/api/shop`, {body: body}).then(
-        this.props.addShopItem(body)
-      );  
+      body.expiration = null;
+      post(`/api/shopadd`, body).then( (res) => {
+        if (res._id) {
+          body._id = res._id;
+          this.props.addShopItem(body)
+        }
+      });
     }
   }
 

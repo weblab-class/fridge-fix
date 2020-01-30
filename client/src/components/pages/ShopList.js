@@ -4,22 +4,6 @@ import "./ShopList.css";
 import ShopListItem from "../modules/ShopListItem.js";
 import { connect } from 'react-redux';
 
-
-const testShopList = [
-  {
-    ingredientID: 0,
-    qt: 1,
-  },
-  {
-    ingredientID: 1,
-    qt: 12,
-  },
-  {
-    ingredientID: 2,
-    qt: 2,
-  },
-]
-
 class ShopList extends Component {
   constructor(props) {
     super(props);
@@ -31,25 +15,30 @@ class ShopList extends Component {
 
   render() {
     const { shopList } = this.props;
-    // let shopList = testShopList;
     let itemList = null;
-    itemList = shopList.map((itemObj, index) => (
-      {data: itemObj,
-      i: index}
-    )).map((itemObj) => (
-      <ShopListItem
-        index = {itemObj.i}
-        ingredientID = {itemObj.data.ingredientID}
-        qt = {itemObj.data.qt}
-        expiration = {itemObj.data.expiration}
-      />
-    ));
 
+    const hasItems = shopList.length !== 0;
+    if (hasItems) {
+      itemList = shopList
+      .map((itemObj, index) => (
+        <ShopListItem
+          index = {index}
+          _id = {itemObj._id}
+          ingredientID = {itemObj.ingredientID}
+          qt = {itemObj.qt}
+        />
+      ));
+    } else {
+      itemList = <div>Empty shopping list!</div>;
+    }
+
+    /*
     console.log(itemList);
     if (itemList.length<15) {
       let itemZeros = new Array(15-itemList.length).fill(<ShopListItem ingredientID=" " qt=" " />);
       itemList = itemList.concat(itemZeros);
     }
+    */
 
     return (
       <div className="ShopList-container">
