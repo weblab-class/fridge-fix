@@ -56,9 +56,9 @@ class NavBar extends Component {
               <Link to="/feed" className="NavBar-button ">
                 Home
               </Link>
-              {/* <Link to="/about" className="NavBar-button">
+              <Link to="/#about" className="NavBar-button">
                 About
-              </Link> */}
+              </Link>
               <Link to="/fridge" className="NavBar-button ">
                 Fridge
               </Link>
@@ -82,9 +82,9 @@ class NavBar extends Component {
             <Link to="/" className="NavBar-button ">
               Home
             </Link>
-            {/* <Link to="/about/" className="NavBar-button">
+            <a href="/#about" className="NavBar-button">
               About
-            </Link> */}
+            </a>
             <GoogleLogin
               clientId={GOOGLE_CLIENT_ID}
               buttonText="Login"

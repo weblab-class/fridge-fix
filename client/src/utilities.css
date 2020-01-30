@@ -41,12 +41,15 @@
   --xl: 32px;
 }
 
+
+
 body {
   margin: 0;
   margin-top: 75px;
   padding: 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
+  scroll-behavior: smooth;
 }
 
 form {

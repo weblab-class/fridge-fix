@@ -35,8 +35,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: undefined,
-      redirect: ""
+      userId: undefined
     };
   }
 
@@ -98,7 +97,7 @@ class App extends Component {
     };
 
     return (
-      <>
+      <div className="contain">
       <NavBar
         path="/"
         handleLogin={this.handleLogin}
@@ -106,16 +105,12 @@ class App extends Component {
         userId={this.state.userId}
       />
       <Router>
-        <Home 
-          path="/"
-          handleLogin={this.handleLogin}
-          clientId = {GOOGLE_CLIENT_ID} 
-        />
+        <Home path="/"/>
         <Fridge path="/fridge" />
         <Feed path="/feed" />
         <RecipePage path="/recipe/:recipeID" />
         <ShopList path="/shop" />
-        <About path="/about" />
+        {/* <About path="/#about" /> */}
         <Profile path="/profile/:userId" />
         <Ingredient path="/ingredient" />
 
@@ -128,7 +123,7 @@ class App extends Component {
         <NotFound default />
       </Router>
 
-      </>
+      </div>
     );
   }
 }
