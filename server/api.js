@@ -55,13 +55,29 @@ router.post("/fridgeadd", auth.ensureLoggedIn, (req, res) => {
   res.send({_id: myId});
 
   return User.findOneAndUpdate({_id: req.user._id}, {$push: {fridgeList: req.body}},{new : true})
-  .then ((doc) => res.send({})).catch(res.send({}));
+  .then ((doc) => res.send({}));
 });
 router.post("/fridgedelete", auth.ensureLoggedIn , (req, res) => {
   res.send({_id: req.body.body});
   return User.findOneAndUpdate({_id: req.user._id}, {$pull: {fridgeList: {_id: req.body.body}}}, {new : true})
-  .then ((doc) => res.send({})).catch(res.send({}));
+  .then ((doc) => res.send({}));
 });
+
+
+router.post("/shopadd", auth.ensureLoggedIn, (req, res) => {
+  const myId = mongoose.Types.ObjectId();
+  req.body._id = myId;
+  res.send({_id: myId});
+
+  return User.findOneAndUpdate({_id: req.user._id}, {$push: {shopList: req.body}}, {new: true})
+  .then ((doc) => res.send({}));
+});
+router.post("/shopdelete", auth.ensureLoggedIn , (req, res) => {
+  res.send({_id: req.body.body});
+  return User.findOneAndUpdate({_id: req.user._id}, {$pull: {shopList: {_id: req.body.body}}}, {new : true})
+  .then ((doc) => res.send({}));
+});
+
 
 router.post("/shop", auth.ensureLoggedIn, (req, res) => {
   console.log("i tried");
