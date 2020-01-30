@@ -36,6 +36,7 @@ class App extends Component {
     super(props);
     this.state = {
       userId: undefined,
+      redirect: ""
     };
   }
 
@@ -48,6 +49,13 @@ class App extends Component {
         this.setState({ userId: user._id });
         this.props.initializeFridgeList(user.fridgeList);
         this.props.initializeShopList(user.shopList);
+        this.setState({
+          redirect: "feed"
+        })
+      } else {
+        this.setState({
+          redirect: ""
+        })
       }
     });
   }
@@ -59,10 +67,13 @@ class App extends Component {
     console.log(userToken)
     post("/api/login", { token: userToken }).then((user) => {
       // the server knows we're logged in now
-      this.setState({userId: user._id})
+      this.setState({userId: user._id});
       this.props.initializeFridgeList(user.fridgeList);
       this.props.initializeShopList(user.shopList);
       console.log(user);
+      this.setState({
+        redirect: "feed"
+      })
     });
   };
 
@@ -72,12 +83,18 @@ class App extends Component {
     this.props.clearFridgeList();
     this.props.clearShopList();
     post("/api/logout");
+    this.setState({
+      redirect: ""
+    })
   };
 
   render() {
-    let redirect = {};
     if (this.state.redirect != null) {
-      redirect = <Redirect to={`/${this.state.redirect}`}/>;
+      const tempRedirect = this.state.redirect;
+      this.setState({
+        redirect: null
+      });
+      return <Redirect push to={`/${tempRedirect}`}/>;
     };
 
     return (
@@ -94,7 +111,6 @@ class App extends Component {
           handleLogin={this.handleLogin}
           clientId = {GOOGLE_CLIENT_ID} 
         />
-        <div path="/">{redirect}</div>
         <Fridge path="/fridge" />
         <Feed path="/feed" />
         <RecipePage path="/recipe/:recipeID" />
