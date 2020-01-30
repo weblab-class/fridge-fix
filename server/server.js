@@ -18,6 +18,8 @@
 const validator = require("./validator");
 validator.checkSetup();
 
+require('dotenv').config();
+
 //import libraries needed for the webserver to work!
 const http = require("http");
 const express = require("express"); // backend framework for our node server.
@@ -32,7 +34,7 @@ const auth = require("./auth");
 const socket = require("./server-socket");
 
 // Server configuration below
-const mongoConnectionURL = "mongodb+srv://admin:asdf@cluster0-jvzyx.mongodb.net/test?retryWrites=true&w=majority";
+const mongoConnectionURL = process.env.ATLAS_SRV;
 const databaseName = "fridgefix";
 
 // connect to mongodb
@@ -55,7 +57,7 @@ app.use(express.json());
 // set up a session, which will persist login data across requests
 app.use(
   session({
-    secret: "session-secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
