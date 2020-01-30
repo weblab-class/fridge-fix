@@ -40,7 +40,7 @@ class FridgeListSidebarItem extends Component {
 
   getStatus = () => {
 		let css = "fridgelistsidebaritem-safe";
-		const dateDif = this.props.expiration - Date.now();
+		const dateDif = this.props.expiration - Math.floor(Date.now()/86400000);
 
 		for (alert of alertThresh) {
 			if (dateDif <= alert.threshold) {

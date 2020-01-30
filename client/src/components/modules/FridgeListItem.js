@@ -77,6 +77,7 @@ class FridgeListItem extends Component {
       <div className={`fridgelistitem-box ${this.getStatus()}`}>
         <p className="fridgelistitem-text">qt. {this.props.qt}</p>
         <p className="fridgelistitem-text">{this.state.name}</p>
+		<p className="fridgelistitem-text">{Math.floor((this.props.expiration - Date.now())/86400000)}</p>
 				<button 
 					className="fridgelistitem-delete"
 					onClick={this.deleteItem}

@@ -30,7 +30,7 @@ class IngredientItem extends Component {
 		let body = {
       ingredientID: this.props.ingredient.ingredientID,
       qt: this.state.qt,
-      expiration: Date.now() + this.props.ingredient.exptime,
+      expiration: Date.now() + this.props.ingredient.exptime*86400000,
     }
     console.log(body);
     if (this.props.targetList == 'fridge') {
