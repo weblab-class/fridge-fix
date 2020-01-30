@@ -58,7 +58,7 @@ class ShopListItem extends Component {
     let body = {
       ingredientID: this.props.ingredientID,
       qt: this.props.qt,
-      expiration: Math.floor(Date.now()/86400000)+this.state.exptime 
+      expiration: Date.now()+this.state.exptime 
     };
     post(`/api/fridgeadd`, body).then( (res) => {
       if (res._id) {
