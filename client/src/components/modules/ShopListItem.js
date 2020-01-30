@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as fridgeListActions  from "../../actions/fridgeListActions"
 import * as shopListActions from "../../actions/shopListActions"
 import FridgeListItem from "./FridgeListItem";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 /**
  * display Fridge item qt and name, colored if there is an alert.
@@ -13,45 +13,60 @@ import { get } from "../../utilities";
  * @param {string} ingredientID
  * @param {string} qt
  * @param index
+ * @param _id
  */
 
 
 class ShopListItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: "loading",
+      exptime: null
+    };
 
   }
 
   componentDidMount() {
-    if (this.props.ingredientID!==' ') {
-      console.log('trying to find name');
-      get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
-      .then((ingredient) => {
-        this.setState({
-          name: ingredient.name,
-          exptime: ingredient.exptime
-        });
+    get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
+    .then((ingredient) => {
+      this.setState({
+        name: ingredient.name,
+        exptime: ingredient.exptime
       });
-    } else {this.setState({
-      name: '    ',
-      exptime: null
-    })};
+    })
+  }
+
+  componentDidUpdate() {
+    get( `/api/ingredient`, {ingredientID: this.props.ingredientID})
+    .then((ingredient) => {
+      this.setState({
+        name: ingredient.name,
+        exptime: ingredient.exptime
+      });
+    })
+  }
+
+  deleteItem = () => {
+    this.props.deleteShopItem(this.props.index);
+    post(`/api/shopdelete`, {body: this.props._id}).then( (log) => {
+      console.log(log);
+    })
   }
   
   moveToFridge = () => {
-    let fridgeItem = {
+    let body = {
       ingredientID: this.props.ingredientID,
       qt: this.props.qt,
       expiration: Date.now()+this.state.exptime 
     };
-    console.log('made the item');
-    console.log(fridgeItem);
-    this.props.addFridgeItem(fridgeItem);
-    console.log('put into fridge');
-    console.log(this.props.index);
-    this.props.deleteShopItem(this.props.index);
-    console.log('yeeted out of shoplist');
+    post(`/api/fridgeadd`, body).then( (res) => {
+      if (res._id) {
+        body._id = res._id;
+        this.props.addFridgeItem(body)
+      }
+    });
+    this.deleteItem();
   }
 
 
@@ -82,6 +97,10 @@ class ShopListItem extends Component {
         )
         
         }
+        <button 
+					className="ShopListItem-delete"
+					onClick={this.deleteItem}
+				>X</button>
       </div>
     );
   }
