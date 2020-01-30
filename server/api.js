@@ -39,24 +39,6 @@ router.get("/search/ingredients", (req, res)=> {
   })
 })
 
-{/*router.get("/search/ingredients", (req, res)=> {
-  Ingredient.find(
-    {name: new RegExp('^'+req.query.query+'$', "i")} 
-  ).then( (ingredients) => {
-    res.send(ingredients)
-  })
-
-})
-*/}
-
-{/*router.get("/search/ingredients", (req, res)=> {
-  Ingredient.find(
-    {"name": {$regex : `^${req.query.query}`}} 
-  ).then( (ingredients) => {
-    res.send(ingredients)
-  })
-})*/}
-
 //stripped to just return all recipes
 router.get("/search/recipes", (req, res) => {
   if (req.query.query.length == 0) {
