@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   fridgeList: [{
     ingredientID: Number,
     qt: Number,
-    expiration: Date
+    expiration: Number,
   }],
   shopList: [{
     ingredientID: Number,
