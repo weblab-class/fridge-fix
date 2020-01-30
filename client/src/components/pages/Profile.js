@@ -37,8 +37,10 @@ class Profile extends Component {
       let expired_num = 0;
 
       for (const item of fridgeList) {
-        if (item.expiration <= Date.now) {
-          expired_num += 1
+        const expirationDate = new Date(item.expiration);
+        
+        if (expirationDate.valueOf() <= Date.now()) {
+          expired_num += 1;
         }
       }
 
