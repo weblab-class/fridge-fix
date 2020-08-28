@@ -4,7 +4,7 @@ Inspired from the frustrations of living in an undergraduate cook-for-yourself c
 ## Description
 FridgeFix tracks food supply and expiration dates, maintains grocery lists, and recommends simple recipes based on what is currently available and unexpired.
 
-![Alt text](fridge-fix/client/dist/images/fridge-fix-website.png?raw=true "Title")
+![Alt text](client/dist/images/fridge-fix-website.png?raw=true "Title")
 
 
 ## Credits
